@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Blogs">
 <meta property="og:description" content="Hexo+Github: 搭建属于自己的静态博客Posted on 2015-12-07   |   In Hexo   |     |   3677  ViewsHexo是一个快速、简洁且高效的博客框架，而Github是一个免费的代码托管工具，利用Github Page可以免费创建一个静态网站。下面将介绍如何使用Hexo和Github，在win10环境下搭建一个静态的博客。全文分为三个部分： 1">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-07T00:46:22.350Z">
+<meta property="og:updated_time" content="2018-05-07T00:49:16.597Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="搭建个人博客">
 <meta name="twitter:description" content="Hexo+Github: 搭建属于自己的静态博客Posted on 2015-12-07   |   In Hexo   |     |   3677  ViewsHexo是一个快速、简洁且高效的博客框架，而Github是一个免费的代码托管工具，利用Github Page可以免费创建一个静态网站。下面将介绍如何使用Hexo和Github，在win10环境下搭建一个静态的博客。全文分为三个部分： 1">
@@ -337,9 +337,7 @@
 <h1 id="Deployment"><a href="#Deployment" class="headerlink" title="Deployment"></a>Deployment</h1><h2 id="Docs-http-hexo-io-docs-deployment-html"><a href="#Docs-http-hexo-io-docs-deployment-html" class="headerlink" title="Docs: http://hexo.io/docs/deployment.html"></a>Docs: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="noopener">http://hexo.io/docs/deployment.html</a></h2><p>deploy:<br>  type: git<br>  repo: <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:MyGithub/MyGithub.github.io<br>注： (1) 其中MyGithub替换成你的Github账户; (2) 注意在yml文件中，:后面都是要带空格的。<br>此时，通过访问<a href="http://MyGithub.github.io可以看到默认的Hexo首页面（与之前本地测试时一样）。" target="_blank" rel="noopener">http://MyGithub.github.io可以看到默认的Hexo首页面（与之前本地测试时一样）。</a><br>选择Hexo主题及发表文章<br>简洁的Next主题<br>本网站使用的是Next主题。该主题简洁易用，在移动端也表现不错。<br>(1) 下载Next主题<br>cd D:\Hexo<br>git clone <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">https://github.com/iissnan/hexo-theme-next</a> themes/next<br>(2) 修改网站的主题为Next<br>打开D:\Hexo下的_config.yml文件，找到theme字段，将其修改为next</p>
 <h1 id="Extensions"><a href="#Extensions" class="headerlink" title="Extensions"></a>Extensions</h1><h2 id="Plugins-http-hexo-io-plugins"><a href="#Plugins-http-hexo-io-plugins" class="headerlink" title="Plugins: http://hexo.io/plugins/"></a>Plugins: <a href="http://hexo.io/plugins/" target="_blank" rel="noopener">http://hexo.io/plugins/</a></h2><h2 id="Themes-http-hexo-io-themes"><a href="#Themes-http-hexo-io-themes" class="headerlink" title="Themes: http://hexo.io/themes/"></a>Themes: <a href="http://hexo.io/themes/" target="_blank" rel="noopener">http://hexo.io/themes/</a></h2><p>theme: next<br>(3) 本地验证是否可用<br>输入<br>hexo s –debug<br>访问本地网站，确认网站主题是否切换为Next.<br>(4) 更新Github<br>输入<br>hexo g -d<br>完成Github上网页文件的更新。<br>发表新文章<br>发表文章操作非常简单，在网站存放的根目录打开git bash，输入<br>hexo n “name of the new post”<br>回车后，在source文件夹下的_post文件夹下，可以看到新建了一个name of the new post.md的文件，打开<br>title: name of the new post<br>date: 2015-12-09 22:55:25</p>
 <h2 id="tags"><a href="#tags" class="headerlink" title="tags:"></a>tags:</h2><p>可以给文章贴上相应的tags，如有多个则按照如下格式<br>[tag1, tag2, tag3, …]<br>在- - -下方添加正文内容即可，注意需要使用markdown语法进行书写。<br>在这里有关于Markdown语法的简单说明。推荐使用MarkdownPad2进行md文件的编辑工作。<br>文章撰写完成后保存，输入<br>hexo g -d<br>即可生成新网站，并且同步Github上的网站内容。<br>注册及绑定自己的域名地址<br>截止到目前为止，你应该可以通过访问<a href="http://MyGithub.github.io来看到以上创建的网站了。" target="_blank" rel="noopener">http://MyGithub.github.io来看到以上创建的网站了。</a><br>但是，如何拥有一个属于自己的域名地址，并将其指向在Github上所创建的网站呢？<br>注册域名<br>推荐选择国内的万网或者国外的Goddady进行域名的注册。<br>DNS域名解析设置<br>如果你选择的是万网注册的域名，可以使用其自带的域名解析服务。<br>进入万网，登陆后进入到个人中心(点击用户名即可)，点击左侧的”云解析”，点击之前所购买的域名，在”解析设置”中，添加如下解析规则:<br>￼<br>其中，当记录类型为A时，记录值为服务器的ip地址，这里的服务器地址为存放Github page的地址，你可以通过命令行输入<br>ping github.io<br>得到。<br>DNS域名解析设置需要一定时间，之后你可以通过ping自己的域名地址来查看是否解析成功。<br>在Github对应的repository中添加CNAME文件<br>即在 MyGithub/MyGithub.github.io 中加入名为”CNAME”的文件，文件内容为你的域名地址，如<br>www.××××××.com<br>保存即可。<br>CNAME文件设置的目的是，通过访问 MyGithub.github.io 可以跳转到你所注册的域名上。<br>为了方便本地文件deploy的时候，CNAME文件不发生丢失，可以在本地网站根目录下的source文件夹下，添加以上的CNAME文件。以后每次deploy的时候，CNAME文件不会发生丢失。</p>
-<p>通过以上的设置，相信你已经可以通过注册域名来访问一个默认的hexo主题页面了。之后的工作就在于，(1)如何对主题进行个性化设置及；(2)发表博文以充实网站内容。这里有关于next主题的个性化设置说明。<br>本文结束，感谢欣赏。<br>欢迎转载，请注明本文的链接地址：<br><a href="http://www.jeyzhang.com/hexo-github-blog-building.html" target="_blank" rel="noopener">http://www.jeyzhang.com/hexo-github-blog-building.html</a></p>
-<p>#Blog #Github Page #Hexo #Personal Website<br>NexT主题个性化设置 </p>
-<p>您的网络连接在连接 disqus.com 时出现问题, 已为你展示精简版评论系统</p>
+<p>通过以上的设置，相信你已经可以通过注册域名来访问一个默认的hexo主题页面了。之后的工作就在于，(1)如何对主题进行个性化设置及；(2)发表博文以充实网站内容</p>
 
       
     </div>
@@ -373,6 +371,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/07/IOS-Audio/" rel="prev" title="IOS-Audio">
+                IOS-Audio <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -449,7 +451,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -460,7 +462,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
