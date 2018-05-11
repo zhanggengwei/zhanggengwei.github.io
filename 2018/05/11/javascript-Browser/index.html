@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-center-atom.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Blogs" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="Window 对象Window 对象123Window 对象表示浏览器中打开的窗口。如果文档包含框架（&amp;lt;frame&amp;gt; 或 &amp;lt;iframe&amp;gt; 标签），浏览器会为 HTML 文档创建一个 window 对象，并为每个框架创建一个额外的 window 对象。注意： 没有应用于 window 对象的公开标准，不过所有浏览器都支持该对象。 Window 对象属性Window 对象方法">
+<meta name="keywords" content="张庚">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript-Browser">
+<meta property="og:url" content="http://yoursite.com/2018/05/11/javascript-Browser/index.html">
+<meta property="og:site_name" content="Blogs">
+<meta property="og:description" content="Window 对象Window 对象123Window 对象表示浏览器中打开的窗口。如果文档包含框架（&amp;lt;frame&amp;gt; 或 &amp;lt;iframe&amp;gt; 标签），浏览器会为 HTML 文档创建一个 window 对象，并为每个框架创建一个额外的 window 对象。注意： 没有应用于 window 对象的公开标准，不过所有浏览器都支持该对象。 Window 对象属性Window 对象方法">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://github.com/zhanggengwei/BlogImages/blob/master/Image/open0.png?raw=true">
+<meta property="og:image" content="https://github.com/zhanggengwei/BlogImages/blob/master/Image/open1.png?raw=true">
+<meta property="og:updated_time" content="2018-05-11T08:34:46.417Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javascript-Browser">
+<meta name="twitter:description" content="Window 对象Window 对象123Window 对象表示浏览器中打开的窗口。如果文档包含框架（&amp;lt;frame&amp;gt; 或 &amp;lt;iframe&amp;gt; 标签），浏览器会为 HTML 文档创建一个 window 对象，并为每个框架创建一个额外的 window 对象。注意： 没有应用于 window 对象的公开标准，不过所有浏览器都支持该对象。 Window 对象属性Window 对象方法">
+<meta name="twitter:image" content="https://github.com/zhanggengwei/BlogImages/blob/master/Image/open0.png?raw=true">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/05/11/javascript-Browser/"/>
+
+
+
+
+
+  <title>javascript-Browser | Blogs</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Blogs</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">张庚</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home 首页"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user 关于"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags 标签"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th 分类"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive 归档"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/11/javascript-Browser/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhanggeng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://i5.tietuku.com/0d972d2b106fc7ea.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blogs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">javascript-Browser</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-11T14:34:43+08:00">
+                2018-05-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">javascript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  8
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Window-对象"><a href="#Window-对象" class="headerlink" title="Window 对象"></a>Window 对象</h1><h2 id="Window-对象-1"><a href="#Window-对象-1" class="headerlink" title="Window 对象"></a>Window 对象</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Window 对象表示浏览器中打开的窗口。</span><br><span class="line">如果文档包含框架（&lt;frame&gt; 或 &lt;iframe&gt; 标签），浏览器会为 HTML 文档创建一个 window 对象，并为每个框架创建一个额外的 window 对象。</span><br><span class="line">注意： 没有应用于 window 对象的公开标准，不过所有浏览器都支持该对象。</span><br></pre></td></tr></table></figure>
+<h2 id="Window-对象属性"><a href="#Window-对象属性" class="headerlink" title="Window 对象属性"></a>Window 对象属性</h2><h2 id="Window-对象方法"><a href="#Window-对象方法" class="headerlink" title="Window 对象方法"></a>Window 对象方法</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#alert">alert()</a></td>
+<td>显示带有一段消息和一个确认按钮的警告框。</td>
+</tr>
+<tr>
+<td><a href="#blur">blur()</a></td>
+<td>把键盘焦点从顶层窗口移开。</td>
+</tr>
+<tr>
+<td><a href="#clearInterval">clearInterval()</a></td>
+<td>取消由 setInterval() 设置的 timeout。</td>
+</tr>
+<tr>
+<td><a href="#clearTimeout">clearTimeout()</a></td>
+<td>取消由 setTimeout() 方法设置的 timeout。</td>
+</tr>
+<tr>
+<td><a href="#close">close()</a></td>
+<td>关闭浏览器窗口。</td>
+</tr>
+<tr>
+<td><a href="#confirm">confirm()</a></td>
+<td>显示带有一段消息以及确认按钮和取消按钮的对话框。</td>
+</tr>
+<tr>
+<td><a href="#createPopup">createPopup()</a></td>
+<td>创建一个 pop-up 窗口。(只有IE支持)</td>
+</tr>
+<tr>
+<td><a href="#focus">focus()</a></td>
+<td>把键盘焦点给予一个窗口</td>
+</tr>
+<tr>
+<td><a href="#moveBy">moveBy()</a></td>
+<td>可相对窗口的当前坐标把它移动指定的像素。</td>
+</tr>
+<tr>
+<td><a href="#moveTo">moveTo()</a></td>
+<td>把窗口的左上角移动到一个指定的坐标。</td>
+</tr>
+<tr>
+<td><a href="#open">open()</a></td>
+<td>打开一个新的浏览器窗口或查找一个已命名的窗口。</td>
+</tr>
+<tr>
+<td><a href="#print">print()</a></td>
+<td>打印当前窗口的内容。</td>
+</tr>
+<tr>
+<td><a href="#prompt">prompt()</a></td>
+<td>显示可提示用户输入的对话框。</td>
+</tr>
+<tr>
+<td><a href="#resizeBy">resizeBy()</a></td>
+<td>按照指定的像素调整窗口的大小。</td>
+</tr>
+<tr>
+<td><a href="#resizeTo">resizeTo()</a></td>
+<td>把窗口的大小调整到指定的宽度和高度。</td>
+</tr>
+<tr>
+<td><a href="#scrollBy">scrollBy()</a></td>
+<td>按照指定的像素值来滚动内容</td>
+</tr>
+<tr>
+<td><a href="#scrollTo">scrollTo()</a></td>
+<td>把内容滚动到指定的坐标。</td>
+</tr>
+<tr>
+<td><a href="#setInterval">setInterval()</a></td>
+<td>按照指定的周期（以毫秒计）来调用函数或计算表达式</td>
+</tr>
+<tr>
+<td><a href="#setTimeout">setTimeout()</a></td>
+<td>在指定的毫秒数后调用函数或计算表达式。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><h4 id="alert"><a href="#alert" class="headerlink" title="alert"></a>alert</h4><div id=""></div>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alert(message)</span><br></pre></td></tr></table></figure>
+<h4 id="blur"><a href="#blur" class="headerlink" title="blur"></a>blur</h4><div id="blur"></div>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window.blur()</span><br></pre></td></tr></table></figure>
+<h4 id="clearInterval"><a href="#clearInterval" class="headerlink" title="clearInterval()"></a>clearInterval()</h4><div id="clearInterval"></div>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">clearInterval(id_of_setinterval)</span><br><span class="line">id_of_setinterval 调用 setInterval() 函数时所获得的返回值，使用该返回标识符作为参数，可以取消该 setInterval() 所设定的定时执行操作。</span><br></pre></td></tr></table></figure>
+<h4 id="clearTimeout"><a href="#clearTimeout" class="headerlink" title="clearTimeout()"></a>clearTimeout()</h4><div id="clearTimeout"></div>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">clearTimeout(id_of_settimeout)</span><br><span class="line">id_of_settimeout 调用 setTimeout() 函数时所获得的返回值，使用该返回标识符作为参数，可以取消该 setTimeout() 所设定的定时执行操作。</span><br></pre></td></tr></table></figure>
+<h4 id="close"><a href="#close" class="headerlink" title="close()"></a>close()</h4><div id="close"></div>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window.close()</span><br></pre></td></tr></table></figure>
+<h4 id="confirm"><a href="#confirm" class="headerlink" title="confirm()"></a>confirm()</h4><div id="confirm"></div>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">confirm(message)</span><br></pre></td></tr></table></figure>
+<h4 id="createPopup"><a href="#createPopup" class="headerlink" title="createPopup()"></a>createPopup()</h4><div id="createPopup"></div>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window.createPopup()</span><br></pre></td></tr></table></figure>
+<h4 id="focus"><a href="#focus" class="headerlink" title="focus()"></a>focus()</h4><div id="focus"></div>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window.focus()</span><br></pre></td></tr></table></figure>
+<h4 id="moveBy"><a href="#moveBy" class="headerlink" title="moveBy()"></a>moveBy()</h4><div id="moveBy"></div>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window.moveBy(x,y)</span><br></pre></td></tr></table></figure>
+<h4 id="moveTo"><a href="#moveTo" class="headerlink" title="moveTo()"></a>moveTo()</h4><div id="moveTo"></div>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window.moveTo(x,y)</span><br></pre></td></tr></table></figure>
+<h4 id="open"><a href="#open" class="headerlink" title="open()"></a>open()</h4><div id="open"></div>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window.open(URL,name,specs,replace)</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/zhanggengwei/BlogImages/blob/master/Image/open0.png?raw=true" alt=""><br><img src="https://github.com/zhanggengwei/BlogImages/blob/master/Image/open1.png?raw=true" alt=""></p>
+<h4 id="print"><a href="#print" class="headerlink" title="print()"></a>print()</h4><div id="print"></div>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window.print()</span><br></pre></td></tr></table></figure>
+<h4 id="prompt"><a href="#prompt" class="headerlink" title="prompt()"></a>prompt()</h4><div id="prompt"></div>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">prompt(msg,defaultText)</span><br></pre></td></tr></table></figure>
+<h4 id="resizeBy"><a href="#resizeBy" class="headerlink" title="resizeBy()"></a>resizeBy()</h4><div id="resizeBy"></div>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">resizeBy(width,height)</span><br><span class="line">resizeBy() 方法用于根据指定的像素来调整窗口的大小。</span><br><span class="line">注意： 此方法定义指定窗口的右下角角落移动的像素，左上角将不会被移动(它停留在其原来的坐标).</span><br></pre></td></tr></table></figure>
+<h4 id="resizeTo"><a href="#resizeTo" class="headerlink" title="resizeTo()"></a>resizeTo()</h4><div id="resizeTo"></div>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window.resizeTo(width,height)</span><br></pre></td></tr></table></figure>
+<h4 id="scrollBy"><a href="#scrollBy" class="headerlink" title="scrollBy()"></a>scrollBy()</h4><div id="scrollBy"></div><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">scrollBy(xnum,ynum)</span><br><span class="line">scrollBy() 方法可把内容滚动指定的像素数。</span><br><span class="line">注意： 要使此方法工作 window 滚动条的可见属性必须设置为true！</span><br></pre></td></tr></table></figure><br><br>|参数|说明|<br>|——|——|<br>|xnum|必需。把文档向右滚动的像素数。|<br>|ynum|必需。把文档向下滚动的像素数。|<br><br>#### scrollTo()<br><br><div id="scrollTo"></div>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scrollTo() 方法可把内容滚动到指定的坐标。</span><br><span class="line">scrollTo(xpos,ypos)</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>xpos</td>
+<td>必需。要在窗口文档显示区左上角显示的文档的 x 坐标。</td>
+</tr>
+<tr>
+<td>ypos</td>
+<td>必需。要在窗口文档显示区左上角显示的文档的 y 坐标。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="setInterval"><a href="#setInterval" class="headerlink" title="setInterval()"></a>setInterval()</h4><div id="setInterval"></div>
+
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code/function</td>
+<td>必需。要调用一个代码串，也可以是一个函数</td>
+</tr>
+<tr>
+<td>milliseconds</td>
+<td>必须。周期性执行或调用 code/function 之间的时间间隔，以毫秒计。</td>
+</tr>
+<tr>
+<td>param1, param2, …</td>
+<td>可选。 传给执行函数的其他参数（IE9 及其更早版本不支持该参数）</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">返回一个 ID（数字），可以将这个ID传递给clearInterval()，clearTimeout() 以取消执行。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">语法</span><br><span class="line">setInterval(code, milliseconds);</span><br><span class="line">setInterval(function, milliseconds, param1, param2, ...)</span><br></pre></td></tr></table></figure>
+<h4 id="setTimeout"><a href="#setTimeout" class="headerlink" title="setTimeout()"></a>setTimeout()</h4><div id="setTimeout"></div>
+
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code/function</td>
+<td>必需。要调用一个代码串，也可以是一个函数</td>
+</tr>
+<tr>
+<td>milliseconds</td>
+<td>可选。执行或调用 code/function 需要等待的时间，以毫秒计。默认为 0。</td>
+</tr>
+<tr>
+<td>param1, param2, …</td>
+<td>可选。 传给执行函数的其他参数（IE9 及其更早版本不支持该参数）。</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">返回一个 ID（数字），可以将这个ID传递给 clearTimeout() 来取消执行。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">语法</span><br><span class="line">setTimeout(code, milliseconds, param1, param2, ...)</span><br><span class="line">setTimeout(function, milliseconds, param1, param2, ...)</span><br></pre></td></tr></table></figure>
+<h1 id="Navigator-对象"><a href="#Navigator-对象" class="headerlink" title="Navigator 对象"></a>Navigator 对象</h1><h2 id="Navigator-对象-1"><a href="#Navigator-对象-1" class="headerlink" title="Navigator 对象"></a>Navigator 对象</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Navigator 对象包含有关浏览器的信息。</span><br><span class="line">注意： 没有应用于 navigator 对象的公开标准，不过所有浏览器都支持该对象。</span><br></pre></td></tr></table></figure>
+<h2 id="Navigator-对象属性"><a href="#Navigator-对象属性" class="headerlink" title="Navigator 对象属性"></a>Navigator 对象属性</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>appCodeName</td>
+<td>返回浏览器的代码名</td>
+</tr>
+<tr>
+<td>appName</td>
+<td>返回浏览器的名称</td>
+</tr>
+<tr>
+<td>appVersion</td>
+<td>返回浏览器的平台和版本信息</td>
+</tr>
+<tr>
+<td>cookieEnabled</td>
+<td>返回指明浏览器中是否启用 cookie 的布尔值</td>
+</tr>
+<tr>
+<td>platform</td>
+<td>返回运行浏览器的操作系统平台</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+<tr>
+<td>userAgent</td>
+<td>返回由客户机发送服务器的user-agent 头部的值</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Navigator-对象方法"><a href="#Navigator-对象方法" class="headerlink" title="Navigator 对象方法"></a>Navigator 对象方法</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>javaEnabled()</td>
+<td>指定是否在浏览器中启用Java</td>
+</tr>
+<tr>
+<td>taintEnabled()</td>
+<td>规定浏览器是否启用数据污点(data tainting)（目前只有IE和Opera浏览器支持）</td>
+</tr>
+</tbody>
+</table>
+<h1 id="Screen-对象"><a href="#Screen-对象" class="headerlink" title="Screen 对象"></a>Screen 对象</h1><h2 id="Screen-对象-1"><a href="#Screen-对象-1" class="headerlink" title="Screen 对象"></a>Screen 对象</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Screen 对象包含有关客户端显示屏幕的信息。</span><br><span class="line">注意： 没有应用于 screen 对象的公开标准，不过所有浏览器都支持该对象。</span><br></pre></td></tr></table></figure>
+<h2 id="Screen-对象属性"><a href="#Screen-对象属性" class="headerlink" title="Screen 对象属性"></a>Screen 对象属性</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>availHeight</td>
+<td>返回屏幕的高度（不包括Windows任务栏）</td>
+</tr>
+<tr>
+<td>availWidth</td>
+<td>返回屏幕的宽度（不包括Windows任务栏</td>
+</tr>
+<tr>
+<td>colorDepth</td>
+<td>返回目标设备或缓冲器上的调色板的比特深度</td>
+</tr>
+<tr>
+<td>height</td>
+<td>返回屏幕的总高度</td>
+</tr>
+<tr>
+<td>pixelDepth</td>
+<td>返回屏幕的颜色分辨率（每象素的位数</td>
+</tr>
+<tr>
+<td>width</td>
+<td>返回屏幕的总宽度</td>
+</tr>
+</tbody>
+</table>
+<h1 id="History-对象"><a href="#History-对象" class="headerlink" title="History 对象"></a>History 对象</h1><h2 id="History-对象-1"><a href="#History-对象-1" class="headerlink" title="History 对象"></a>History 对象</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">包含用户（在浏览器窗口中）访问过的 URL。</span><br><span class="line">History 对象是 window 对象的一部分，可通过 window.history 属性对其进行访问。</span><br><span class="line">注意： 没有应用于History对象的公开标准，不过所有浏览器都支持该对象。</span><br></pre></td></tr></table></figure>
+<h2 id="History-对象属性"><a href="#History-对象属性" class="headerlink" title="History 对象属性"></a>History 对象属性</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>length</td>
+<td>返回历史列表中的网址数</td>
+</tr>
+</tbody>
+</table>
+<h2 id="History-对象方法"><a href="#History-对象方法" class="headerlink" title="History 对象方法"></a>History 对象方法</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#back">back()</a></td>
+<td>加载 history 列表中的前一个 URL</td>
+</tr>
+<tr>
+<td><a href="#forward">forward()</a></td>
+<td>加载 history 列表中的下一个 URL</td>
+</tr>
+<tr>
+<td><a href="#go">go()</a></td>
+<td>加载 history 列表中的某个具体页面</td>
+</tr>
+</tbody>
+</table>
+<h3 id="应用-1"><a href="#应用-1" class="headerlink" title="应用"></a>应用</h3><h4 id="back"><a href="#back" class="headerlink" title="back()"></a>back()</h4><div id="back"></div>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">back() 方法可加载历史列表中的前一个 URL（如果存在）。</span><br><span class="line">调用该方法的效果等价于点击后退按钮或调用 history.go(-1)。</span><br><span class="line">语法</span><br><span class="line">history.back()</span><br></pre></td></tr></table></figure>
+<h4 id="forward"><a href="#forward" class="headerlink" title="forward()"></a>forward()</h4><div id="forward"></div>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">forward() 方法可加载历史列表中的下一个 URL。</span><br><span class="line">调用该方法的效果等价于点击前进按钮或调用 history.go(1)。</span><br><span class="line"></span><br><span class="line">语法</span><br><span class="line">history.forward()</span><br></pre></td></tr></table></figure>
+<h4 id="go"><a href="#go" class="headerlink" title="go()"></a>go()</h4><div id="go"></div>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">go() 方法可加载历史列表中的某个具体的页面。</span><br><span class="line">该参数可以是数字，使用的是要访问的 URL 在 History 的 URL 列表中的相对位置。（-1上一个页面，1前进一个页面)。或一个字符串，字符串必须是局部或完整的URL，该函数会去匹配字符串的第一个URL。</span><br><span class="line">语法</span><br><span class="line">history.go(number|URL)</span><br></pre></td></tr></table></figure>
+<h1 id="Location-对象"><a href="#Location-对象" class="headerlink" title="Location 对象"></a>Location 对象</h1><h2 id="Location-对象-1"><a href="#Location-对象-1" class="headerlink" title="Location 对象"></a>Location 对象</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Location 对象包含有关当前 URL 的信息。</span><br><span class="line">Location 对象是 window 对象的一部分，可通过 window.Location 属性对其进行访问。</span><br><span class="line">注意： 没有应用于Location对象的公开标准，不过所有浏览器都支持该对象。</span><br></pre></td></tr></table></figure>
+<h2 id="Location-对象属性"><a href="#Location-对象属性" class="headerlink" title="Location 对象属性"></a>Location 对象属性</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#hash">hash</a></td>
+<td>返回一个URL的锚部分</td>
+</tr>
+<tr>
+<td><a href="#host">host</a></td>
+<td>返回一个URL的主机名和端口</td>
+</tr>
+<tr>
+<td><a href="#hostname">hostname</a></td>
+<td>返回URL的主机名</td>
+</tr>
+<tr>
+<td><a href="#href">href</a></td>
+<td>返回完整的URL</td>
+</tr>
+<tr>
+<td><a href="#pathname">pathname</a></td>
+<td>返回的URL路径名。</td>
+</tr>
+<tr>
+<td><a href="#port">port</a></td>
+<td>返回一个URL服务器使用的端口号</td>
+</tr>
+<tr>
+<td><a href="#protocol">protocol</a></td>
+<td>返回一个URL协议</td>
+</tr>
+<tr>
+<td><a href="#search">search</a></td>
+<td>返回一个URL的查询部分</td>
+</tr>
+</tbody>
+</table>
+<h3 id="应用-2"><a href="#应用-2" class="headerlink" title="应用"></a>应用</h3><div id="hash"></div>
+
+<p>####hash</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">   alert(window.location.hash);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<div id="host"></div>
+
+<h4 id="host"><a href="#host" class="headerlink" title="host"></a>host</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">  var ss = window.location.host;</span><br><span class="line">  console.log(ss);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<div id="hostname"></div>
+
+<h4 id="hostname"><a href="#hostname" class="headerlink" title="hostname"></a>hostname</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    var hostname = window.location.hostname;</span><br><span class="line">    console.log(hostname);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<div id="href"></div>
+
+<h4 id="href"><a href="#href" class="headerlink" title="href"></a>href</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    console.log(&apos;search&apos;+location.href);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<div id="pathname"></div>
+
+<h4 id="pathname"><a href="#pathname" class="headerlink" title="pathname"></a>pathname</h4><div id="port"></div>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    console.log(&apos;search&apos;+location.pathname);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="port"><a href="#port" class="headerlink" title="port"></a>port</h4><div id="port"></div>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    console.log(&apos;search&apos;+location.port);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="search"><a href="#search" class="headerlink" title="search"></a>search</h4><div id="search"></div>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    console.log(&apos;search&apos;+location.search);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="protocaol"><a href="#protocaol" class="headerlink" title="protocaol"></a>protocaol</h4><div id="protocol"></div>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">   console.log(&apos;search&apos;+location.search);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="Location-对象方法"><a href="#Location-对象方法" class="headerlink" title="Location 对象方法"></a>Location 对象方法</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#assign">assign(</a>)</td>
+<td>载入一个新的文档</td>
+</tr>
+<tr>
+<td><a href="#reload">reload()</a></td>
+<td>重新载入当前文档</td>
+</tr>
+<tr>
+<td><a href="#replace">replace()</a></td>
+<td>用新的文档替换当前文档</td>
+</tr>
+</tbody>
+</table>
+<h3 id="应用-3"><a href="#应用-3" class="headerlink" title="应用"></a>应用</h3><h4 id="assign"><a href="#assign" class="headerlink" title="assign"></a>assign</h4><div id="asssign"></div>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">   window.location.assign(&apos;url&apos;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="reload"><a href="#reload" class="headerlink" title="reload"></a>reload</h4><div id="reload"></div>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">   window.location.reload(state);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">如果把该方法的参数设置为 true，那么无论文档的最后修改日期是什么，它都会绕过缓存，从服务器上重新下载该文档。这与用户在单击浏览器的刷新按钮时按住 Shift 健的效果是完全一样。</span><br></pre></td></tr></table></figure>
+<h4 id="replace"><a href="#replace" class="headerlink" title="replace"></a>replace</h4><div id="replace"></div>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">   window.location.replace(&apos;url&apos;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+    
+      <div>
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2018/05/11/javascript-Browser/">javascript-Browser</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 zhanggeng 的个人博客">zhanggeng</a></p>
+  <p><span>发布时间:</span>2018年05月11日 - 14:05</p>
+  <p><span>最后更新:</span>2018年05月11日 - 16:05</p>
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+        });
+    });  
+</script>
+
+      </div>
+    
+    
+
+    
+
+    
+    
+    <div>
+      
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/11/javascript-Number/" rel="next" title="javascript-Number">
+                <i class="fa fa-chevron-left"></i> javascript-Number
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="http://i5.tietuku.com/0d972d2b106fc7ea.jpg"
+                alt="zhanggeng" />
+            
+              <p class="site-author-name" itemprop="name">zhanggeng</p>
+              <p class="site-description motion-element" itemprop="description">张庚个人博客</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Window-对象"><span class="nav-number">1.</span> <span class="nav-text">Window 对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Window-对象-1"><span class="nav-number">1.1.</span> <span class="nav-text">Window 对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Window-对象属性"><span class="nav-number">1.2.</span> <span class="nav-text">Window 对象属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Window-对象方法"><span class="nav-number">1.3.</span> <span class="nav-text">Window 对象方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#应用"><span class="nav-number">1.3.1.</span> <span class="nav-text">应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#alert"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">alert</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#blur"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">blur</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#clearInterval"><span class="nav-number">1.3.1.3.</span> <span class="nav-text">clearInterval()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#clearTimeout"><span class="nav-number">1.3.1.4.</span> <span class="nav-text">clearTimeout()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#close"><span class="nav-number">1.3.1.5.</span> <span class="nav-text">close()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#confirm"><span class="nav-number">1.3.1.6.</span> <span class="nav-text">confirm()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#createPopup"><span class="nav-number">1.3.1.7.</span> <span class="nav-text">createPopup()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#focus"><span class="nav-number">1.3.1.8.</span> <span class="nav-text">focus()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#moveBy"><span class="nav-number">1.3.1.9.</span> <span class="nav-text">moveBy()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#moveTo"><span class="nav-number">1.3.1.10.</span> <span class="nav-text">moveTo()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#open"><span class="nav-number">1.3.1.11.</span> <span class="nav-text">open()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#print"><span class="nav-number">1.3.1.12.</span> <span class="nav-text">print()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#prompt"><span class="nav-number">1.3.1.13.</span> <span class="nav-text">prompt()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#resizeBy"><span class="nav-number">1.3.1.14.</span> <span class="nav-text">resizeBy()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#resizeTo"><span class="nav-number">1.3.1.15.</span> <span class="nav-text">resizeTo()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#scrollBy"><span class="nav-number">1.3.1.16.</span> <span class="nav-text">scrollBy()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#setInterval"><span class="nav-number">1.3.1.17.</span> <span class="nav-text">setInterval()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#setTimeout"><span class="nav-number">1.3.1.18.</span> <span class="nav-text">setTimeout()</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Navigator-对象"><span class="nav-number">2.</span> <span class="nav-text">Navigator 对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Navigator-对象-1"><span class="nav-number">2.1.</span> <span class="nav-text">Navigator 对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Navigator-对象属性"><span class="nav-number">2.2.</span> <span class="nav-text">Navigator 对象属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Navigator-对象方法"><span class="nav-number">2.3.</span> <span class="nav-text">Navigator 对象方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Screen-对象"><span class="nav-number">3.</span> <span class="nav-text">Screen 对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Screen-对象-1"><span class="nav-number">3.1.</span> <span class="nav-text">Screen 对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Screen-对象属性"><span class="nav-number">3.2.</span> <span class="nav-text">Screen 对象属性</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#History-对象"><span class="nav-number">4.</span> <span class="nav-text">History 对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#History-对象-1"><span class="nav-number">4.1.</span> <span class="nav-text">History 对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#History-对象属性"><span class="nav-number">4.2.</span> <span class="nav-text">History 对象属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#History-对象方法"><span class="nav-number">4.3.</span> <span class="nav-text">History 对象方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#应用-1"><span class="nav-number">4.3.1.</span> <span class="nav-text">应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#back"><span class="nav-number">4.3.1.1.</span> <span class="nav-text">back()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#forward"><span class="nav-number">4.3.1.2.</span> <span class="nav-text">forward()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#go"><span class="nav-number">4.3.1.3.</span> <span class="nav-text">go()</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Location-对象"><span class="nav-number">5.</span> <span class="nav-text">Location 对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Location-对象-1"><span class="nav-number">5.1.</span> <span class="nav-text">Location 对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Location-对象属性"><span class="nav-number">5.2.</span> <span class="nav-text">Location 对象属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#应用-2"><span class="nav-number">5.2.1.</span> <span class="nav-text">应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#host"><span class="nav-number">5.2.1.1.</span> <span class="nav-text">host</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#hostname"><span class="nav-number">5.2.1.2.</span> <span class="nav-text">hostname</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#href"><span class="nav-number">5.2.1.3.</span> <span class="nav-text">href</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pathname"><span class="nav-number">5.2.1.4.</span> <span class="nav-text">pathname</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#port"><span class="nav-number">5.2.1.5.</span> <span class="nav-text">port</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#search"><span class="nav-number">5.2.1.6.</span> <span class="nav-text">search</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#protocaol"><span class="nav-number">5.2.1.7.</span> <span class="nav-text">protocaol</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Location-对象方法"><span class="nav-number">5.3.</span> <span class="nav-text">Location 对象方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#应用-3"><span class="nav-number">5.3.1.</span> <span class="nav-text">应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#assign"><span class="nav-number">5.3.1.1.</span> <span class="nav-text">assign</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#reload"><span class="nav-number">5.3.1.2.</span> <span class="nav-text">reload</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#replace"><span class="nav-number">5.3.1.3.</span> <span class="nav-text">replace</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <!--<div class="copyright">&copy; 
+   <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhanggeng</span> 
+
+  
+
+</div>-->
+
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+-->
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-balance-scale"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhanggeng</span>
+</div>
+
+<div class="busuanzi-count">
+    <script async="" src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      访问用户： <span class="busuanzi-value" id="busuanzi_value_site_uv"></span> 人
+    </span>
+    <div class="powered-by"></div>
+    <span class="site-uv">
+      <i class="fa fa-eye"></i>
+      访问次数： <span class="busuanzi-value" id="busuanzi_value_site_pv"></span> 次
+    </span>
+    <!-- 博客字数统计 -->
+    <span class="site-pv">
+      <i class="fa fa-pencil"></i>
+      博客全站共： <span class="post-count">10.2k</span> 字
+    </span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<!-- <script type="text/javascript" src="/js/src/love.js"></script> -->
