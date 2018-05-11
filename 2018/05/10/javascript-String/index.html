@@ -88,18 +88,18 @@
 
 
 
-<meta name="description" content="String 对象12String 对象用于处理文本（字符串）。String 对象创建方法： new String(). String 对象属性   属性 描述     constructor 对创建该对象的函数的引用   length 字符串的长度   prototype 允许您向对象添加属性和方法    String 对象方法   方法 描述">
+<meta name="description" content="String 对象12String 对象用于处理文本（字符串）。String 对象创建方法： new String(). String 对象属性   属性 描述     constructor 对创建该对象的函数的引用   length 字符串的长度   prototype 允许您向对象添加属性和方法    String 对象方法   方法 描述     charAt() 返回在指定位置的字符。">
 <meta name="keywords" content="张庚">
 <meta property="og:type" content="article">
 <meta property="og:title" content="javascript-String">
 <meta property="og:url" content="http://yoursite.com/2018/05/10/javascript-String/index.html">
 <meta property="og:site_name" content="Blogs">
-<meta property="og:description" content="String 对象12String 对象用于处理文本（字符串）。String 对象创建方法： new String(). String 对象属性   属性 描述     constructor 对创建该对象的函数的引用   length 字符串的长度   prototype 允许您向对象添加属性和方法    String 对象方法   方法 描述">
+<meta property="og:description" content="String 对象12String 对象用于处理文本（字符串）。String 对象创建方法： new String(). String 对象属性   属性 描述     constructor 对创建该对象的函数的引用   length 字符串的长度   prototype 允许您向对象添加属性和方法    String 对象方法   方法 描述     charAt() 返回在指定位置的字符。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-11T02:25:01.709Z">
+<meta property="og:updated_time" content="2018-05-11T03:36:16.294Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript-String">
-<meta name="twitter:description" content="String 对象12String 对象用于处理文本（字符串）。String 对象创建方法： new String(). String 对象属性   属性 描述     constructor 对创建该对象的函数的引用   length 字符串的长度   prototype 允许您向对象添加属性和方法    String 对象方法   方法 描述">
+<meta name="twitter:description" content="String 对象12String 对象用于处理文本（字符串）。String 对象创建方法： new String(). String 对象属性   属性 描述     constructor 对创建该对象的函数的引用   length 字符串的长度   prototype 允许您向对象添加属性和方法    String 对象方法   方法 描述     charAt() 返回在指定位置的字符。">
 
 
 
@@ -358,7 +358,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  6
                 </span>
               
             </div>
@@ -411,70 +411,310 @@
 </thead>
 <tbody>
 <tr>
-<td></td>
-<td></td>
+<td><a href="#charAt">charAt()</a></td>
+<td>返回在指定位置的字符。</td>
+</tr>
+<tr>
+<td><a href="#charCodeAt">charCodeAt()</a></td>
+<td>返回在指定的位置的字符的 Unicode 编码。</td>
+</tr>
+<tr>
+<td><a href="#concat">concat()</a></td>
+<td>连接两个或更多字符串，并返回新的字符串。</td>
+</tr>
+<tr>
+<td><a href="#fromCharCode">fromCharCode()</a></td>
+<td>将 Unicode 编码转为字符。</td>
+</tr>
+<tr>
+<td><a href="#indexOf">indexOf()</a></td>
+<td>返回某个指定的字符串值在字符串中首次出现的位置</td>
+</tr>
+<tr>
+<td><a href="#lastIndexOf">lastIndexOf()</a></td>
+<td>从后向前搜索字符串，并从起始位置（0）开始计算返回字符串最后出现的位置</td>
+</tr>
+<tr>
+<td><a href="#match">match()</a></td>
+<td>查找找到一个或多个正则表达式的匹配。</td>
+</tr>
+<tr>
+<td><a href="#replace">replace()</a></td>
+<td>在字符串中查找匹配的子串， 并替换与正则表达式匹配的子串。</td>
+</tr>
+<tr>
+<td><a href="#search">search()</a></td>
+<td>查找与正则表达式相匹配的值。</td>
+</tr>
+<tr>
+<td><a href="#slice">slice()</a></td>
+<td>提取字符串的片断，并在新的字符串中返回被提取的部分。</td>
 </tr>
 <tr>
 <td></td>
-<td></td>
+</tr>
+<tr>
+<td><a href="#split">split()</a></td>
+<td>把字符串分割为字符串数组。</td>
+</tr>
+<tr>
+<td><a href="#substr">substr()</a></td>
+<td>从起始索引号提取字符串中指定数目的字符。</td>
+</tr>
+<tr>
+<td><a href="#substring">substring()</a></td>
+<td>提取字符串中两个指定的索引号之间的字符。</td>
+</tr>
+<tr>
+<td><a href="#toLowerCase">toLowerCase()</a></td>
+<td>把字符串转换为小写。</td>
 </tr>
 <tr>
 <td></td>
-<td></td>
 </tr>
 <tr>
-<td></td>
-<td></td>
+<td><a href="#toUpperCase">toUpperCase()</a></td>
+<td>把字符串转换为大写。</td>
 </tr>
 <tr>
-<td></td>
-<td></td>
+<td><a href="#trim">trim()</a></td>
+<td>去除字符串两边的空白</td>
 </tr>
 <tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
+<td><a href="#valueOf">valueOf()</a></td>
+<td>返回某个字符串对象的原始值。</td>
 </tr>
 </tbody>
 </table>
+<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><h3 id="charAt"><a href="#charAt" class="headerlink" title="charAt"></a>charAt</h3><div id="charAt"></div>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var str = &apos;abc&apos;;</span><br><span class="line">console.log(str.charAt(0));</span><br><span class="line">注意点 ：位置必须介于[0,str.length) 之间。</span><br></pre></td></tr></table></figure>
+<h3 id="charCodeAt"><a href="#charCodeAt" class="headerlink" title="charCodeAt"></a>charCodeAt</h3><div id="charCodeAt"></div>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var str = &apos;abc&apos;;</span><br><span class="line">console.log(str.charCodeAt(0));</span><br><span class="line">注意点 ：位置必须介于[0,str.length) 之间。超过结果：NAN</span><br></pre></td></tr></table></figure>
+<h3 id="concat"><a href="#concat" class="headerlink" title="concat"></a>concat</h3><div id="concat"></div>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">函数原型 contact(string1,string2,......);</span><br><span class="line">var string1 = &apos;you are&apos;;</span><br><span class="line">var string2 = &apos;good&apos;;</span><br><span class="line">var string3 = &apos;student&apos;;</span><br><span class="line">var ss = string1.concat(string2,string3);</span><br><span class="line">console.log(ss);</span><br><span class="line">输出结果： you aregoodstudent</span><br><span class="line">注意：产生新数组，不会改变原有的字符串。</span><br></pre></td></tr></table></figure>
+<h3 id="fromCharCode"><a href="#fromCharCode" class="headerlink" title="fromCharCode"></a>fromCharCode</h3><div id="fromCharCode"></div>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String.fromCharCode(97)</span><br><span class="line">//输出结果 “a”；</span><br></pre></td></tr></table></figure>
+<h3 id="indexOf"><a href="#indexOf" class="headerlink" title="indexOf"></a>indexOf</h3><div id="indexOf"></div>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var string = &apos;youuuu&apos;;</span><br><span class="line">var index = string.indexOf(&apos;u&apos;);</span><br><span class="line">index 代表第一次出现&apos;u&apos;的索引值。</span><br></pre></td></tr></table></figure>
+<h3 id="lastIndexOf"><a href="#lastIndexOf" class="headerlink" title="lastIndexOf"></a>lastIndexOf</h3><div id="lastIndexOf"></div>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var string = &apos;youuuu&apos;;</span><br><span class="line">var index = string.lastIndexOf(&apos;u&apos;);</span><br><span class="line">index 代表最后出现&apos;u&apos;的索引值。</span><br></pre></td></tr></table></figure>
+<h3 id="match"><a href="#match" class="headerlink" title="match"></a>match</h3><div id="match"></div>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var string = &apos;The rain in SPAIN stays mainly in the plain&apos;;</span><br><span class="line">string.match(\you\g);</span><br><span class="line">输出  [&quot;ain&quot;, &quot;ain&quot;, &quot;ain&quot;]</span><br><span class="line">返回结果 数组</span><br></pre></td></tr></table></figure>
+<h3 id="replace"><a href="#replace" class="headerlink" title="replace"></a>replace</h3><div id="replace"></div>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">语法 string.replace(searchvalue,newvalue);</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>searchvalue</td>
+<td>必须。规定子字符串或要替换的模式的 RegExp 对象。请注意，如果该值是一个字符串，则将它作为要检索的直接量文本模式，而不是首先被转换为 RegExp 对象。</td>
+</tr>
+<tr>
+<td>newvalue</td>
+<td>必需。一个字符串值。规定了替换文本或生成替换文本的函数。</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var str=&quot;Mr Blue has a blue house and a blue car&quot;;</span><br><span class="line">var n=str.replace(/blue/g,&quot;red&quot;);</span><br><span class="line">结果：Mr Blue has a red house and a red car</span><br><span class="line">注意点：产生一个新的数组</span><br></pre></td></tr></table></figure>
+<div id="search"></div>
+
+<h3 id="search"><a href="#search" class="headerlink" title="search"></a>search</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">string.search(searchvalue)</span><br></pre></td></tr></table></figure>
+<p>参数值</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>searchvalue</td>
+<td>必须。查找的字符串或者正则表达式。</td>
+</tr>
+</tbody>
+</table>
+<p>返回值</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Number</td>
+<td>与指定查找的字符串或者正则表达式相匹配的 String 对象起始位置。</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var str=&quot;Mr. Blue has a blue house&quot;;</span><br><span class="line">var n = str.search(&apos;blue&apos;);</span><br></pre></td></tr></table></figure>
+<h3 id="slice"><a href="#slice" class="headerlink" title="slice"></a>slice</h3><div id="slice"></div>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">string.slice(start,end)</span><br></pre></td></tr></table></figure>
+<p>参数</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>start</td>
+<td>必须. 要抽取的片断的起始下标。第一个字符位置为 0</td>
+</tr>
+<tr>
+<td>end</td>
+<td>可选。 紧接着要抽取的片段的结尾的下标。若未指定此参数，则要提取的子串包括 start 到原字符串结尾的字符串。如果该参数是负数，那么它规定的是从字符串的尾部开始算起的位置。</td>
+</tr>
+</tbody>
+</table>
+<p>返回值</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>String</td>
+<td>提取的字符串</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var str=&quot;Hello world!&quot;;</span><br><span class="line">var n=str.slice(0);</span><br><span class="line">结果：Hello world!</span><br></pre></td></tr></table></figure>
+<h3 id="split"><a href="#split" class="headerlink" title="split"></a>split</h3><div id="split"></div>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">string.split(separator,limit)</span><br></pre></td></tr></table></figure>
+<p>参数</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>separator</td>
+<td>可选。字符串或正则表达式，从该参数指定的地方分割 string Object。</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>可选。该参数可指定返回的数组的最大长度。如果设置了该参数，返回的子串不会多于这个参数指定的数组。如果没有设置该参数，整个字符串都会被分割，不考虑它的长度。</td>
+</tr>
+</tbody>
+</table>
+<p>返回值</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Array</td>
+<td>一个字符串数组。该数组是通过在separator指定的边界处将字符串 string Object 分割成子串创建的。返回的数组中的字串不包括 separator 自身。</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var str=&quot;How are you doing today?&quot;;</span><br><span class="line">var n=str.split();</span><br><span class="line">[How are you doing today?&quot;]</span><br></pre></td></tr></table></figure>
+<h3 id="substr"><a href="#substr" class="headerlink" title="substr"></a>substr</h3><div id="substr"></div>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">string.substr(start,length)</span><br></pre></td></tr></table></figure>
+<p>参数值</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>start</td>
+<td>必需。要抽取的子串的起始下标。必须是数值。如果是负数，那么该参数声明从字符串的尾部开始算起的位置。也就是说，-1 指字符串中最后一个字符，-2 指倒数第二个字符，以此类推。</td>
+</tr>
+<tr>
+<td>length</td>
+<td>可选。子串中的字符数。必须是数值。如果省略了该参数，那么返回从 stringObject 的开始位置到结尾的字串。</td>
+</tr>
+</tbody>
+</table>
+<p>返回值</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>String</td>
+<td>A new string containing the extracted part of the text</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var str=&quot;Hello world!&quot;;</span><br><span class="line">var n=str.substr(2)</span><br><span class="line">结果：llo world!</span><br></pre></td></tr></table></figure>
+<h3 id="substring-方法返回的子串包括-开始-处的字符，但不包括-结束-处的字符。"><a href="#substring-方法返回的子串包括-开始-处的字符，但不包括-结束-处的字符。" class="headerlink" title="substring() 方法返回的子串包括 开始 处的字符，但不包括 结束 处的字符。"></a>substring() 方法返回的子串包括 开始 处的字符，但不包括 结束 处的字符。</h3><div id="substring"></div>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">string.substring(from, to)</span><br></pre></td></tr></table></figure>
+<p>参数值</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>from</td>
+<td>必需。一个非负的整数，规定要提取的子串的第一个字符在 string Object 中的位置。</td>
+</tr>
+<tr>
+<td>to</td>
+<td>可选。一个非负的整数，比要提取的子串的最后一个字符在 string Object 中的位置多 1。如果省略该参数，那么返回的子串会一直到字符串的结尾。</td>
+</tr>
+</tbody>
+</table>
+<p>返回值</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>String</td>
+<td>子串</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var str=&quot;Hello world!&quot;</span><br><span class="line">str.substring(0);</span><br><span class="line">Hello world!</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -493,7 +733,7 @@
   <p><span>本文标题:</span><a href="/2018/05/10/javascript-String/">javascript-String</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 zhanggeng 的个人博客">zhanggeng</a></p>
   <p><span>发布时间:</span>2018年05月10日 - 22:05</p>
-  <p><span>最后更新:</span>2018年05月11日 - 10:05</p>
+  <p><span>最后更新:</span>2018年05月11日 - 11:05</p>
 </div>
 <script> 
     var clipboard = new Clipboard('.fa-clipboard');
@@ -631,7 +871,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -684,7 +924,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#String-对象"><span class="nav-number">1.</span> <span class="nav-text">String 对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#String-对象属性"><span class="nav-number">1.1.</span> <span class="nav-text">String 对象属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String-对象方法"><span class="nav-number">1.2.</span> <span class="nav-text">String 对象方法</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#String-对象"><span class="nav-number">1.</span> <span class="nav-text">String 对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#String-对象属性"><span class="nav-number">1.1.</span> <span class="nav-text">String 对象属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String-对象方法"><span class="nav-number">1.2.</span> <span class="nav-text">String 对象方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用"><span class="nav-number">1.3.</span> <span class="nav-text">应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#charAt"><span class="nav-number">1.3.1.</span> <span class="nav-text">charAt</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#charCodeAt"><span class="nav-number">1.3.2.</span> <span class="nav-text">charCodeAt</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#concat"><span class="nav-number">1.3.3.</span> <span class="nav-text">concat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fromCharCode"><span class="nav-number">1.3.4.</span> <span class="nav-text">fromCharCode</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#indexOf"><span class="nav-number">1.3.5.</span> <span class="nav-text">indexOf</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lastIndexOf"><span class="nav-number">1.3.6.</span> <span class="nav-text">lastIndexOf</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#match"><span class="nav-number">1.3.7.</span> <span class="nav-text">match</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#replace"><span class="nav-number">1.3.8.</span> <span class="nav-text">replace</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#search"><span class="nav-number">1.3.9.</span> <span class="nav-text">search</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#slice"><span class="nav-number">1.3.10.</span> <span class="nav-text">slice</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#split"><span class="nav-number">1.3.11.</span> <span class="nav-text">split</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#substr"><span class="nav-number">1.3.12.</span> <span class="nav-text">substr</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#substring-方法返回的子串包括-开始-处的字符，但不包括-结束-处的字符。"><span class="nav-number">1.3.13.</span> <span class="nav-text">substring() 方法返回的子串包括 开始 处的字符，但不包括 结束 处的字符。</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -754,7 +994,7 @@
     <!-- 博客字数统计 -->
     <span class="site-pv">
       <i class="fa fa-pencil"></i>
-      博客全站共： <span class="post-count">6.5k</span> 字
+      博客全站共： <span class="post-count">7.8k</span> 字
     </span>
 </div>
 
