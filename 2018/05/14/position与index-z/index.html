@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-center-atom.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Blogs" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="深入理解css中position属性及z-index属性12在网页设计中，position属性的使用是非常重要的。有时如果不能认识清楚这个属性，将会给我们带来很多意想不到的困难。　　position属性共有四种不同的定位方法，分别是static、fixed、relative、absolute,sticky。最后将会介绍和position属性密切相关的z-index属性。 position:stat">
+<meta name="keywords" content="张庚">
+<meta property="og:type" content="article">
+<meta property="og:title" content="position">
+<meta property="og:url" content="http://yoursite.com/2018/05/14/position与index-z/index.html">
+<meta property="og:site_name" content="Blogs">
+<meta property="og:description" content="深入理解css中position属性及z-index属性12在网页设计中，position属性的使用是非常重要的。有时如果不能认识清楚这个属性，将会给我们带来很多意想不到的困难。　　position属性共有四种不同的定位方法，分别是static、fixed、relative、absolute,sticky。最后将会介绍和position属性密切相关的z-index属性。 position:stat">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://github.com/zhanggengwei/BlogImages/blob/master/Image/position-fixed.png?raw=true">
+<meta property="og:image" content="https://github.com/zhanggengwei/BlogImages/blob/master/Image/position-absolute.png?raw=true">
+<meta property="og:image" content="https://github.com/zhanggengwei/BlogImages/blob/master/Image/position-absolute2.png?raw=true">
+<meta property="og:image" content="https://github.com/zhanggengwei/BlogImages/blob/master/Image/position-absolute3.png?raw=true">
+<meta property="og:image" content="https://github.com/zhanggengwei/BlogImages/blob/master/Image/position-11?raw=true">
+<meta property="og:image" content="https://github.com/zhanggengwei/BlogImages/blob/master/Image/position-12?raw=true">
+<meta property="og:updated_time" content="2018-05-14T02:47:46.067Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="position">
+<meta name="twitter:description" content="深入理解css中position属性及z-index属性12在网页设计中，position属性的使用是非常重要的。有时如果不能认识清楚这个属性，将会给我们带来很多意想不到的困难。　　position属性共有四种不同的定位方法，分别是static、fixed、relative、absolute,sticky。最后将会介绍和position属性密切相关的z-index属性。 position:stat">
+<meta name="twitter:image" content="https://github.com/zhanggengwei/BlogImages/blob/master/Image/position-fixed.png?raw=true">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/05/14/position与index-z/"/>
+
+
+
+
+
+  <title>position | Blogs</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Blogs</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">张庚</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home 首页"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user 关于"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags 标签"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th 分类"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive 归档"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/14/position与index-z/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhanggeng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://i5.tietuku.com/0d972d2b106fc7ea.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blogs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">position</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-14T09:47:48+08:00">
+                2018-05-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/css/" itemprop="url" rel="index">
+                    <span itemprop="name">css</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="深入理解css中position属性及z-index属性"><a href="#深入理解css中position属性及z-index属性" class="headerlink" title="深入理解css中position属性及z-index属性"></a>深入理解css中position属性及z-index属性</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">在网页设计中，position属性的使用是非常重要的。有时如果不能认识清楚这个属性，将会给我们带来很多意想不到的困难。</span><br><span class="line">　　position属性共有四种不同的定位方法，分别是static、fixed、relative、absolute,sticky。最后将会介绍和position属性密切相关的z-index属性。</span><br></pre></td></tr></table></figure>
+<h2 id="position-static"><a href="#position-static" class="headerlink" title="position:static"></a>position:static</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">static定位是HTML元素的默认值，即没有定位，元素出现在正常的流中，因此，这种定位就不会收到top，bottom,left,right的影响。</span><br></pre></td></tr></table></figure>
+<p>html 代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;div style=&apos;background-color:red;</span><br><span class="line">   width:100px;</span><br><span class="line">height:100px;&apos;&gt;</span><br><span class="line">    &lt;div style=&apos;background-color:green;</span><br><span class="line">width:30px;</span><br><span class="line">height:30px;left:30px&apos;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>效果图如下</p>
+<div style="background-color:red;
+   width:100px;
+height:100px;"><br>    <div style="background-color:green;
+width:30px;
+height:30px;left:30px"></div><br></div>
+
+<p>我们发现，虽然设置了static以及top，但是元素仍然出现在正常的流中。</p>
+<h2 id="fixed定位"><a href="#fixed定位" class="headerlink" title="fixed定位"></a>fixed定位</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fixed定位是指元素的位置相对于浏览器窗口是固定位置，即使窗口是滚动的它也不会滚动，且fixed定位使元素的位置与文档流无关，因此不占据空间，且它会和其他元素发生重叠。</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/zhanggengwei/BlogImages/blob/master/Image/position-fixed.png?raw=true" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;content&quot;&gt;我是使用fix来定位的！！！所以我相对于浏览器窗口，一直不动。&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">body&#123;height:1500px; background: green; font-size: 30px; color:white;&#125;.content&#123; position: fixed; right:0;bottom: 0; width: 300px;height: 300px; background: blue;&#125;</span><br></pre></td></tr></table></figure>
+<p>值得注意的是：fixed定位在IE7和IE8下需要描述！DOCTYPE才能支持。</p>
+<h2 id="relative定位"><a href="#relative定位" class="headerlink" title="relative定位"></a>relative定位</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">相对定位元素的定位是相对它自己的正常位置的定位。</span><br></pre></td></tr></table></figure>
+<p>关键：如何理解其自身的坐标呢？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;h2&gt;正常位置&lt;/h2&gt;</span><br><span class="line">    &lt;h2 style=&quot;position: relative;top: 300px&quot;&gt;正常位置向下移动&lt;/h2&gt;</span><br><span class="line">    &lt;h2 style=&quot;position: relative;left: 30px;&quot;&gt;正常位置向右移动&lt;/h2&gt;</span><br><span class="line">    即top:300px;；向下移动。  left:50px;向右移动。</span><br></pre></td></tr></table></figure>
+<p>即可以理解为：移动后是移动前的负的位置。<br>移动后是移动前负的bottom:-20px;即移动后是移动前bottom:20px;也就是说，移动后是移动前的向下20px；<br>又如：left:50px;移动后是移动前左边的-50px;那么也就是说移动后是移动前的右边的50px。<br>即：移动后对于移动前：如果值为负数，则直接换成整数；如果值为整数，则直接改变相对方向。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">即使相对定位元素的内容是移动,预留空间的元素仍保存在正常流动</span><br><span class="line">即使相对元素的内容移动了，但是预留空间的元素仍然保存在正常流动，也就是说相对移动之后，不会对下面的其他元素造成影响</span><br></pre></td></tr></table></figure>
+<h2 id="absolute定位"><a href="#absolute定位" class="headerlink" title="absolute定位"></a>absolute定位</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">绝对定位的元素相对于最近的已定位父元素，如果元素没有已定位的父元素，那么它的位置相对于&lt;html&gt;。</span><br></pre></td></tr></table></figure>
+<p>例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;绝对定位&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;          </span><br><span class="line">    body&#123;</span><br><span class="line">      background:green;</span><br><span class="line">    &#125;</span><br><span class="line">   .parent&#123; </span><br><span class="line">      width: 500px;</span><br><span class="line">      height: 500px;</span><br><span class="line">      background: #ccc;</span><br><span class="line">   &#125;</span><br><span class="line">   .son&#123; </span><br><span class="line">      width: 300px;</span><br><span class="line">      height: 300px;</span><br><span class="line">      background: #aaa;</span><br><span class="line">   &#125;</span><br><span class="line">   span&#123;</span><br><span class="line">      position: absolute; </span><br><span class="line">      right: 30px; </span><br><span class="line">      background: #888;</span><br><span class="line">   &#125;</span><br><span class="line">   &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;parent&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;son&quot;&gt;</span><br><span class="line">            &lt;span&gt;什么？&lt;/span&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/zhanggengwei/BlogImages/blob/master/Image/position-absolute.png?raw=true" alt=""></p>
+<p>例2:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.son&#123;position: relative; width: 100px;height: 100px;background: #aaa; &#125;</span><br></pre></td></tr></table></figure>
+<p>相较于上一个例子，我只修改了class为son的元素的css，设置为position：relative；效果图如下：<br><img src="https://github.com/zhanggengwei/BlogImages/blob/master/Image/position-absolute2.png?raw=true" alt=""></p>
+<p>例三：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.parent&#123;position: absolute; width: 300px;height: 300px;background: #ccc;&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/zhanggengwei/BlogImages/blob/master/Image/position-absolute3.png?raw=true" alt=""><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">当某个absolute定位元素的父元素具有position:relative/absolute/fixed时，定位元素都会依据父元素而定位，而父元素没有设置position属性或者设置了默认属性，那么定位属性会依据html元素来定位。</span><br></pre></td></tr></table></figure></p>
+<h2 id="脱离文档流"><a href="#脱离文档流" class="headerlink" title="脱离文档流"></a>脱离文档流</h2><p>我们知道如果使用position:absolute和position:fixed都会导致元素脱离文档流，由此就会产生相应的问题。举例如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;position&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        .div1&#123;</span><br><span class="line">            background-color: red;</span><br><span class="line">            padding:20px;</span><br><span class="line">        &#125;</span><br><span class="line">        .div2&#123;</span><br><span class="line">            width: 200px;</span><br><span class="line">            height: 200px;</span><br><span class="line">            background-color: blue;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;div1&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;div2&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/zhanggengwei/BlogImages/blob/master/Image/position-11?raw=true" alt=""></p>
+<p>但是一旦子元素的position为fixed或者是absolute，那么它就会脱离文档流，这样的后果是父元素无法被撑开，如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;position&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        .div1&#123;</span><br><span class="line">            background-color: red;</span><br><span class="line">            padding:20px;</span><br><span class="line">            position: relative;</span><br><span class="line">        &#125;</span><br><span class="line">        .div2&#123;</span><br><span class="line">            position: absolute; // 添加position:absolute使其脱离文档流</span><br><span class="line">            width: 200px;</span><br><span class="line">            height: 200px;</span><br><span class="line">            background-color: blue;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;div1&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;div2&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/zhanggengwei/BlogImages/blob/master/Image/position-12?raw=true" alt=""></p>
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">解决方法1：在js中设置父元素高度等于子元素的高度。</span><br><span class="line">解决方法2：给父元素强行设置高度。（对于宽度导致的类似问题就强行设置宽度）</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+    
+      <div>
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2018/05/14/position与index-z/">position</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 zhanggeng 的个人博客">zhanggeng</a></p>
+  <p><span>发布时间:</span>2018年05月14日 - 09:05</p>
+  <p><span>最后更新:</span>2018年05月14日 - 10:05</p>
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+        });
+    });  
+</script>
+
+      </div>
+    
+    
+
+    
+
+    
+    
+    <div>
+      
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/11/javascript-Browser/" rel="next" title="javascript-Browser">
+                <i class="fa fa-chevron-left"></i> javascript-Browser
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/14/RunLoop-事件循环对象/" rel="prev" title="RunLoop-事件循环对象">
+                RunLoop-事件循环对象 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="http://i5.tietuku.com/0d972d2b106fc7ea.jpg"
+                alt="zhanggeng" />
+            
+              <p class="site-author-name" itemprop="name">zhanggeng</p>
+              <p class="site-description motion-element" itemprop="description">张庚个人博客</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#深入理解css中position属性及z-index属性"><span class="nav-number">1.</span> <span class="nav-text">深入理解css中position属性及z-index属性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#position-static"><span class="nav-number">1.1.</span> <span class="nav-text">position:static</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fixed定位"><span class="nav-number">1.2.</span> <span class="nav-text">fixed定位</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#relative定位"><span class="nav-number">1.3.</span> <span class="nav-text">relative定位</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#absolute定位"><span class="nav-number">1.4.</span> <span class="nav-text">absolute定位</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#脱离文档流"><span class="nav-number">1.5.</span> <span class="nav-text">脱离文档流</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方法"><span class="nav-number">1.5.1.</span> <span class="nav-text">解决方法</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <!--<div class="copyright">&copy; 
+   <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhanggeng</span> 
+
+  
+
+</div>-->
+
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+-->
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-balance-scale"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhanggeng</span>
+</div>
+
+<div class="busuanzi-count">
+    <script async="" src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      访问用户： <span class="busuanzi-value" id="busuanzi_value_site_uv"></span> 人
+    </span>
+    <div class="powered-by"></div>
+    <span class="site-uv">
+      <i class="fa fa-eye"></i>
+      访问次数： <span class="busuanzi-value" id="busuanzi_value_site_pv"></span> 次
+    </span>
+    <!-- 博客字数统计 -->
+    <span class="site-pv">
+      <i class="fa fa-pencil"></i>
+      博客全站共： <span class="post-count">17.8k</span> 字
+    </span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<!-- <script type="text/javascript" src="/js/src/love.js"></script> -->
