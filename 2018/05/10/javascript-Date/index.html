@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="Blogs">
 <meta property="og:description" content="JavaScript Date 对象1234Date 对象Date 对象用于处理日期与时间。创建 Date 对象： new Date()以下四种方法同样可以创建 Date 对象： 1234var d = new Date();var d = new Date(milliseconds);var d = new Date(dateString);var d = new Date(year, mont">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-10T13:55:48.634Z">
+<meta property="og:updated_time" content="2018-05-14T09:18:47.358Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript-Date">
 <meta name="twitter:description" content="JavaScript Date 对象1234Date 对象Date 对象用于处理日期与时间。创建 Date 对象： new Date()以下四种方法同样可以创建 Date 对象： 1234var d = new Date();var d = new Date(milliseconds);var d = new Date(dateString);var d = new Date(year, mont">
@@ -525,11 +525,82 @@
 </tr>
 <tr>
 <td>setUTCFullYear()</td>
-<td>setUTCFullYear()</td>
+<td>setUTCFullYear()根据世界时设置 Date 对象中的年份（四位数字）。</td>
+</tr>
+<tr>
+<td>setUTCHours()</td>
+<td>根据世界时设置 Date 对象中的小时 (0 ~ 23)。</td>
+</tr>
+<tr>
+<td>setUTCMilliseconds()</td>
+<td>根据世界时设置 Date 对象中的毫秒 (0 ~ 999)。</td>
+</tr>
+<tr>
+<td>setUTCMinutes()</td>
+<td>根据世界时设置 Date 对象中的分钟 (0 ~ 59)。</td>
+</tr>
+<tr>
+<td>setUTCMonth()</td>
+<td>根据世界时设置 Date 对象中的月份 (0 ~ 11)。</td>
+</tr>
+<tr>
+<td>setUTCSeconds()</td>
+<td>setUTCSeconds() 方法用于根据世界时 (UTC) 设置指定时间的秒字段。</td>
+</tr>
+<tr>
+<td>setYear()</td>
+<td>已废弃。请使用 setFullYear() 方法代替。</td>
+</tr>
+<tr>
+<td>toDateString()</td>
+<td>把 Date 对象的日期部分转换为字符串。</td>
+</tr>
+<tr>
+<td>toGMTString()</td>
+<td>已废弃。请使用 toUTCString() 方法代替。</td>
+</tr>
+<tr>
+<td>toISOString()</td>
+<td>使用 ISO 标准返回字符串的日期格式。</td>
+</tr>
+<tr>
+<td>toJSON()</td>
+<td>以 JSON 数据格式返回日期字符串。</td>
+</tr>
+<tr>
+<td>toLocaleDateString()</td>
+<td>根据本地时间格式，把 Date 对象的日期部分转换为字符串。</td>
+</tr>
+<tr>
+<td>toLocaleTimeString()</td>
+<td>根据本地时间格式，把 Date 对象的时间部分转换为字符串。</td>
+</tr>
+<tr>
+<td>toLocaleString()</td>
+<td>据本地时间格式，把 Date 对象转换为字符串。</td>
+</tr>
+<tr>
+<td>toString()</td>
+<td>把 Date 对象转换为字符串。</td>
+</tr>
+<tr>
+<td>toTimeString()</td>
+<td>把 Date 对象的时间部分转换为字符串。</td>
+</tr>
+<tr>
+<td>toUTCString()</td>
+<td>根据世界时，把 Date 对象转换为字符串。</td>
+</tr>
+<tr>
+<td>UTC()</td>
+<td>根据世界时返回 1970 年 1 月 1 日 到指定日期的毫秒数。</td>
+</tr>
+<tr>
+<td>valueOf()</td>
+<td>返回 Date 对象的原始值。</td>
 </tr>
 </tbody>
 </table>
-<p>根据世界时设置 Date 对象中的年份（四位数字）。|<br>|setUTCHours()|根据世界时设置 Date 对象中的小时 (0 ~ 23)。|<br>|setUTCMilliseconds()|根据世界时设置 Date 对象中的毫秒 (0 ~ 999)。|<br>|setUTCMinutes()|根据世界时设置 Date 对象中的分钟 (0 ~ 59)。|<br>|setUTCMonth()|根据世界时设置 Date 对象中的月份 (0 ~ 11)。|<br>|setUTCSeconds()|setUTCSeconds() 方法用于根据世界时 (UTC) 设置指定时间的秒字段。|<br>|setYear()|已废弃。请使用 setFullYear() 方法代替。|<br>|toDateString()|把 Date 对象的日期部分转换为字符串。|<br>|toGMTString()|已废弃。请使用 toUTCString() 方法代替。|<br>|toISOString()|使用 ISO 标准返回字符串的日期格式。|<br>|toJSON()|以 JSON 数据格式返回日期字符串。|<br>|toLocaleDateString()|根据本地时间格式，把 Date 对象的日期部分转换为字符串。|<br>|toLocaleTimeString()|根据本地时间格式，把 Date 对象的时间部分转换为字符串。|<br>|toLocaleString()|据本地时间格式，把 Date 对象转换为字符串。|<br>|toString()|把 Date 对象转换为字符串。|<br>|toTimeString()|把 Date 对象的时间部分转换为字符串。|<br>|toUTCString()|根据世界时，把 Date 对象转换为字符串。|<br>|UTC()|根据世界时返回 1970 年 1 月 1 日 到指定日期的毫秒数。|<br>|valueOf()|返回 Date 对象的原始值。|</p>
 
       
     </div>
@@ -548,7 +619,7 @@
   <p><span>本文标题:</span><a href="/2018/05/10/javascript-Date/">javascript-Date</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 zhanggeng 的个人博客">zhanggeng</a></p>
   <p><span>发布时间:</span>2018年05月10日 - 21:05</p>
-  <p><span>最后更新:</span>2018年05月10日 - 21:05</p>
+  <p><span>最后更新:</span>2018年05月14日 - 17:05</p>
 </div>
 <script> 
     var clipboard = new Clipboard('.fa-clipboard');
@@ -686,7 +757,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -809,7 +880,7 @@
     <!-- 博客字数统计 -->
     <span class="site-pv">
       <i class="fa fa-pencil"></i>
-      博客全站共： <span class="post-count">25.7k</span> 字
+      博客全站共： <span class="post-count">27.8k</span> 字
     </span>
 </div>
 
