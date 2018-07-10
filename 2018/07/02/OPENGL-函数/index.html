@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-center-atom.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Blogs" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="函数glGenRenderbuffersvoid glGenRenderbuffers (GLsizei n, GLuint* renderbuffers); 1第一个参数是创建帧的数目，第二个是指向存储一个或者多个ID的变量或数组的指针 glBindFramebuffervoid  glBindFramebuffer (GLenum target, GLuint framebuffer)  1第">
+<meta name="keywords" content="张庚">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OPENGL-函数">
+<meta property="og:url" content="http://yoursite.com/2018/07/02/OPENGL-函数/index.html">
+<meta property="og:site_name" content="Blogs">
+<meta property="og:description" content="函数glGenRenderbuffersvoid glGenRenderbuffers (GLsizei n, GLuint* renderbuffers); 1第一个参数是创建帧的数目，第二个是指向存储一个或者多个ID的变量或数组的指针 glBindFramebuffervoid  glBindFramebuffer (GLenum target, GLuint framebuffer)  1第">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-07-02T07:52:11.780Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OPENGL-函数">
+<meta name="twitter:description" content="函数glGenRenderbuffersvoid glGenRenderbuffers (GLsizei n, GLuint* renderbuffers); 1第一个参数是创建帧的数目，第二个是指向存储一个或者多个ID的变量或数组的指针 glBindFramebuffervoid  glBindFramebuffer (GLenum target, GLuint framebuffer)  1第">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/07/02/OPENGL-函数/"/>
+
+
+
+
+
+  <title>OPENGL-函数 | Blogs</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Blogs</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">张庚</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home 首页"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user 关于"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags 标签"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th 分类"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive 归档"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/02/OPENGL-函数/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhanggeng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://i5.tietuku.com/0d972d2b106fc7ea.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blogs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">OPENGL-函数</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-02T15:36:42+08:00">
+                2018-07-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/IOS/" itemprop="url" rel="index">
+                    <span itemprop="name">IOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><h3 id="glGenRenderbuffers"><a href="#glGenRenderbuffers" class="headerlink" title="glGenRenderbuffers"></a>glGenRenderbuffers</h3><p>void glGenRenderbuffers (GLsizei n, GLuint* renderbuffers);</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">第一个参数是创建帧的数目，第二个是指向存储一个或者多个ID的变量或数组的指针</span><br></pre></td></tr></table></figure>
+<h3 id="glBindFramebuffer"><a href="#glBindFramebuffer" class="headerlink" title="glBindFramebuffer"></a>glBindFramebuffer</h3><p>void  glBindFramebuffer (GLenum target, GLuint framebuffer) </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">第一个参数target应该是GL_FRAMEBUFFER，第二个参数是FBO的ID号。一旦FBO被绑定，之后的所有的OpenGL操作都会对当前所绑定的FBO造成影响。ID号为0表示缺省帧缓存，即默认的window提供的帧缓存。因此，在glBindFramebuffer()中将ID号设置为0可以解绑定当前FBO。</span><br></pre></td></tr></table></figure>
+<p>一旦一个FBO被创建，在使用它之前必须绑定。</p>
+<h3 id="glDeleteFramebuffers"><a href="#glDeleteFramebuffers" class="headerlink" title="glDeleteFramebuffers"></a>glDeleteFramebuffers</h3><h2 id="渲染缓存对象"><a href="#渲染缓存对象" class="headerlink" title="渲染缓存对象"></a>渲染缓存对象</h2><p>glGenRenderbuffers</p>
+<p>glDeleteRenderbuffers<br>glDeleteRenderbuffers</p>
+<p>glRenderbufferStorage<br>当一个渲染缓存被创建，它没有任何数据存储区域，所以我们还要为他分配空间。这可以通过用glRenderbufferStorage()实现。第一个参数必须是GL_RENDERBUFFER。第二个参数可以是用于颜色的（GL_RGB，GL_RGBA，etc.），用于深度的（GL_DEPTH_COMPONENT），或者是用于模板的格式（GL_STENCIL_INDEX）。Width和height是渲染缓存图像的像素维度。</p>
+<p>width和height必须比GL_MAX_RENDERBUFFER_SIZE_EXT小，否则将会产生GL_UNVALID_VALUE错误。</p>
+<p>glGetRenderbufferParameteriv()<br>void glGetRenderbufferParameteriv(GLenum target, GLenum param,GLint* value);<br>我们也可以得到当前绑定的渲染缓存对象的一些参数。Target应该是GL_RENDERBUFFER，第二个参数是所要得到的参数名字。最后一个是指向存储返回值的整型量的指针。渲染缓存的变量名有如下：<br>GL_RENDERBUFFER_WIDTH<br>GL_RENDERBUFFER_HEIGHT<br>GL_RENDERBUFFER_INTERNAL_FORMAT<br>GL_RENDERBUFFER_RED_SIZE<br>GL_RENDERBUFFER_GREEN_SIZE<br>GL_RENDERBUFFER_BLUE_SIZE<br>GL_RENDERBUFFER_ALPHA_SIZE<br>GL_RENDERBUFFER_DEPTH_SIZE<br>GL_RENDERBUFFER_STENCIL_SIZE</p>
+<p>将图像和FBO关联</p>
+<p>FBO本身没有图像存储区。我们必须帧缓存关联图像（纹理或渲染对象）关联到FBO。这种机制允许FBO快速地切换（分离和关联）帧缓存关联图像。切换帧缓存关联图像比在FBO之间切换要快得多。而且，它节省了不必要的数据拷贝和内存消耗。比如，一个纹理可以被关联到多个FBO上，图像存储区可以被多个FBO共享。<br>把2D纹理图像关联到FBO<br>glFramebufferTexture2D(GLenum target,<br>                          GLenumattachmentPoint,<br>                         GLenum textureTarget,<br>                         GLuint textureId,<br>                         GLint  level)</p>
+<p>glFramebufferTexture2D()把一幅纹理图像关联到一个FBO。第一个参数一定是GL_FRAMEBUFFER_，第二个参数是关联纹理图像的关联点。一个帧缓冲区对象可以有多个颜色关联点(GL_COLOR_ATTACHMENT0, …, GL_COLOR_ATTACHMENTn),L_DEPTH_ATTACHMENT, 和GL_STENCIL_ATTACHMENT。第三个参数textureTarget在多数情况下是GL_TEXTURE_2D。第四个参数是纹理对象的ID号。最后一个参数是要被关联的纹理的mipmap等级<br>如果参数textureId被设置为0，那么纹理图像将会被从FBO分离。如果纹理对象在依然关联在FBO上时被删除，那么纹理对象将会自动从当前帮的FBO上分离。然而，如果它被关联到多个FBO上然后被删除，那么它将只被从绑定的FBO上分离，而不会被从其他非绑定的FBO上分离。</p>
+<p>把渲染缓存对象关联到FBO<br>void glFramebufferRenderbuffer(GLenum target,<br>                                 GLenum attachmentPoint,<br>                                 GLenum renderbufferTarget,<br>                                 GLuint renderbufferId)<br>通过调用glFramebufferRenderbuffer()可以关联渲染缓存图像。前两个参数和glFramebufferTexture2D()一样。第三个参数只能是GL_RENDERBUFFER，最后一个参数是渲染缓存对象的ID号。<br>如果参数renderbufferId被设置为0，渲染缓存图像将会从FBO的关联点分离。如果渲染缓存图像在依然关联在FBO上时被删除，那么纹理对象将会自动从当前绑定的FBO上分离，而不会从其他非绑定的FBO上分离。</p>
+<p>检查FBO状态<br>一旦关联图像（纹理和渲染缓存）被关联到FBO上，在执行FBO的操作之前，你必须检查FBO的状态:完整或不完整。这可以通过调用glCheckFramebufferStatusEXT()来检查其状态。如果帧缓冲区状态是不完整的，那么任何绘制命令(glBegin(),glCopyTexImage2D()等等)都会失败。</p>
+<p>GLenum glCheckFramebufferStatus(GLenum target)</p>
+<p>FBO完整性准则有</p>
+<p>（1）帧缓存关联图像的宽度和高度必须非零。<br>（2）如果一幅图像被关联到一个颜色关联点，那么这幅图像必须有颜色可渲染的内部格式（GL_RGBA, GL_DEPTH_COMPONENT, GL_LUMINANCE, etc)。<br>（3）如果一幅被图像关联到GL_DEPTH_ATTACHMENT，那么这幅图像必须有深度可渲染的内部格式(GL_DEPTH_COMPONENT,GL_DEPTH_COMPONENT24, etc)。<br>（4）如果一幅被图像关联到GL_STENCIL_ATTACHMENT，那么这幅图像必须有模板可渲染的内部格式(GL_STENCIL_INDEX,GL_STENCIL_INDEX8, etc)。<br>（5）FBO至少有一幅图像关联。<br>（6）被关联到FBO的缩影图像必须有相同的宽度和高度。<br>（7）被关联到颜色关联点上的所有图像必须有相同的内部格式。<br>注意：即使以上所有条件都满足，你的OpenGL驱动也可能不支持某些格式和参数的组合。如果一种特别的实现不被OpenGL驱动支持，那么glCheckFramebufferStatus()返回GL_FRAMEBUFFER_UNSUPPORTED。</p>
+
+      
+    </div>
+    
+    
+    
+    
+      <div>
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2018/07/02/OPENGL-函数/">OPENGL-函数</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 zhanggeng 的个人博客">zhanggeng</a></p>
+  <p><span>发布时间:</span>2018年07月02日 - 15:07</p>
+  <p><span>最后更新:</span>2018年07月02日 - 15:07</p>
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+        });
+    });  
+</script>
+
+      </div>
+    
+    
+
+    
+
+    
+    
+    <div>
+      
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/22/OPENGLES-纹理/" rel="next" title="OPENGLES-纹理">
+                <i class="fa fa-chevron-left"></i> OPENGLES-纹理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/05/socket-详解/" rel="prev" title="socket-详解">
+                socket-详解 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="http://i5.tietuku.com/0d972d2b106fc7ea.jpg"
+                alt="zhanggeng" />
+            
+              <p class="site-author-name" itemprop="name">zhanggeng</p>
+              <p class="site-description motion-element" itemprop="description">张庚个人博客</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#函数"><span class="nav-number">1.</span> <span class="nav-text">函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#glGenRenderbuffers"><span class="nav-number">1.1.</span> <span class="nav-text">glGenRenderbuffers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#glBindFramebuffer"><span class="nav-number">1.2.</span> <span class="nav-text">glBindFramebuffer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#glDeleteFramebuffers"><span class="nav-number">1.3.</span> <span class="nav-text">glDeleteFramebuffers</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#渲染缓存对象"><span class="nav-number">2.</span> <span class="nav-text">渲染缓存对象</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <!--<div class="copyright">&copy; 
+   <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhanggeng</span> 
+
+  
+
+</div>-->
+
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+-->
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-balance-scale"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhanggeng</span>
+</div>
+
+<div class="busuanzi-count">
+    <script async="" src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      访问用户： <span class="busuanzi-value" id="busuanzi_value_site_uv"></span> 人
+    </span>
+    <div class="powered-by"></div>
+    <span class="site-uv">
+      <i class="fa fa-eye"></i>
+      访问次数： <span class="busuanzi-value" id="busuanzi_value_site_pv"></span> 次
+    </span>
+    <!-- 博客字数统计 -->
+    <span class="site-pv">
+      <i class="fa fa-pencil"></i>
+      博客全站共： <span class="post-count">54.0k</span> 字
+    </span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<!-- <script type="text/javascript" src="/js/src/love.js"></script> -->

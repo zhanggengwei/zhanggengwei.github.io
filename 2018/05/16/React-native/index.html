@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-center-atom.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Blogs" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="React-Native 简单的使用propsstate样式宽度高度使用FlexBox布局处理文本输入滚动视图使用长列表网络其他参考资源进阶指南集成到现有的原生应用使用导航器跳转页面颜色图片处理触摸事件动画无障碍功能定时器直接操作调试自动化测试JavaScript环境性能升级特定平台代码手势响应系统社区资源js.coach第三方组件库中文论坛组件分享区中文论坛问题求助区使用指南(IOS)原生模块原">
+<meta name="keywords" content="张庚">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React-native">
+<meta property="og:url" content="http://yoursite.com/2018/05/16/React-native/index.html">
+<meta property="og:site_name" content="Blogs">
+<meta property="og:description" content="React-Native 简单的使用propsstate样式宽度高度使用FlexBox布局处理文本输入滚动视图使用长列表网络其他参考资源进阶指南集成到现有的原生应用使用导航器跳转页面颜色图片处理触摸事件动画无障碍功能定时器直接操作调试自动化测试JavaScript环境性能升级特定平台代码手势响应系统社区资源js.coach第三方组件库中文论坛组件分享区中文论坛问题求助区使用指南(IOS)原生模块原">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-05-16T08:59:31.612Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React-native">
+<meta name="twitter:description" content="React-Native 简单的使用propsstate样式宽度高度使用FlexBox布局处理文本输入滚动视图使用长列表网络其他参考资源进阶指南集成到现有的原生应用使用导航器跳转页面颜色图片处理触摸事件动画无障碍功能定时器直接操作调试自动化测试JavaScript环境性能升级特定平台代码手势响应系统社区资源js.coach第三方组件库中文论坛组件分享区中文论坛问题求助区使用指南(IOS)原生模块原">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/05/16/React-native/"/>
+
+
+
+
+
+  <title>React-native | Blogs</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Blogs</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">张庚</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home 首页"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user 关于"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags 标签"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th 分类"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive 归档"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/16/React-native/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhanggeng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://i5.tietuku.com/0d972d2b106fc7ea.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blogs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">React-native</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-16T16:40:15+08:00">
+                2018-05-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/react-native/" itemprop="url" rel="index">
+                    <span itemprop="name">react-native</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="React-Native-简单的使用"><a href="#React-Native-简单的使用" class="headerlink" title="React-Native 简单的使用"></a>React-Native 简单的使用</h1><h2 id="props"><a href="#props" class="headerlink" title="props"></a>props</h2><h2 id="state"><a href="#state" class="headerlink" title="state"></a>state</h2><h2 id="样式"><a href="#样式" class="headerlink" title="样式"></a>样式</h2><h2 id="宽度"><a href="#宽度" class="headerlink" title="宽度"></a>宽度</h2><h2 id="高度"><a href="#高度" class="headerlink" title="高度"></a>高度</h2><h2 id="使用FlexBox布局"><a href="#使用FlexBox布局" class="headerlink" title="使用FlexBox布局"></a>使用FlexBox布局</h2><h2 id="处理文本输入"><a href="#处理文本输入" class="headerlink" title="处理文本输入"></a>处理文本输入</h2><h2 id="滚动视图"><a href="#滚动视图" class="headerlink" title="滚动视图"></a>滚动视图</h2><h2 id="使用长列表"><a href="#使用长列表" class="headerlink" title="使用长列表"></a>使用长列表</h2><h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2><h2 id="其他参考资源"><a href="#其他参考资源" class="headerlink" title="其他参考资源"></a>其他参考资源</h2><h1 id="进阶指南"><a href="#进阶指南" class="headerlink" title="进阶指南"></a>进阶指南</h1><h2 id="集成到现有的原生应用"><a href="#集成到现有的原生应用" class="headerlink" title="集成到现有的原生应用"></a>集成到现有的原生应用</h2><h2 id="使用导航器跳转页面"><a href="#使用导航器跳转页面" class="headerlink" title="使用导航器跳转页面"></a>使用导航器跳转页面</h2><h2 id="颜色"><a href="#颜色" class="headerlink" title="颜色"></a>颜色</h2><h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><h2 id="处理触摸事件"><a href="#处理触摸事件" class="headerlink" title="处理触摸事件"></a>处理触摸事件</h2><h2 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h2><h2 id="无障碍功能"><a href="#无障碍功能" class="headerlink" title="无障碍功能"></a>无障碍功能</h2><h2 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h2><h2 id="直接操作"><a href="#直接操作" class="headerlink" title="直接操作"></a>直接操作</h2><h2 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h2><h2 id="自动化测试"><a href="#自动化测试" class="headerlink" title="自动化测试"></a>自动化测试</h2><h2 id="JavaScript环境"><a href="#JavaScript环境" class="headerlink" title="JavaScript环境"></a>JavaScript环境</h2><h2 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h2><h2 id="升级"><a href="#升级" class="headerlink" title="升级"></a>升级</h2><h2 id="特定平台代码"><a href="#特定平台代码" class="headerlink" title="特定平台代码"></a>特定平台代码</h2><h2 id="手势响应系统"><a href="#手势响应系统" class="headerlink" title="手势响应系统"></a>手势响应系统</h2><h1 id="社区资源"><a href="#社区资源" class="headerlink" title="社区资源"></a>社区资源</h1><h2 id="js-coach第三方组件库"><a href="#js-coach第三方组件库" class="headerlink" title="js.coach第三方组件库"></a>js.coach第三方组件库</h2><h2 id="中文论坛组件分享区"><a href="#中文论坛组件分享区" class="headerlink" title="中文论坛组件分享区"></a>中文论坛组件分享区</h2><h2 id="中文论坛问题求助区"><a href="#中文论坛问题求助区" class="headerlink" title="中文论坛问题求助区"></a>中文论坛问题求助区</h2><h1 id="使用指南-IOS"><a href="#使用指南-IOS" class="headerlink" title="使用指南(IOS)"></a>使用指南(IOS)</h1><h2 id="原生模块"><a href="#原生模块" class="headerlink" title="原生模块"></a>原生模块</h2><h2 id="原生UI组件"><a href="#原生UI组件" class="headerlink" title="原生UI组件"></a>原生UI组件</h2><h2 id="链接原生库"><a href="#链接原生库" class="headerlink" title="链接原生库"></a>链接原生库</h2><h2 id="在设备上运行"><a href="#在设备上运行" class="headerlink" title="在设备上运行"></a>在设备上运行</h2><h2 id="在模拟器上运行"><a href="#在模拟器上运行" class="headerlink" title="在模拟器上运行"></a>在模拟器上运行</h2><h2 id="和原生端通信"><a href="#和原生端通信" class="headerlink" title="和原生端通信"></a>和原生端通信</h2><h2 id="iOS应用扩展"><a href="#iOS应用扩展" class="headerlink" title="iOS应用扩展"></a>iOS应用扩展</h2><h1 id="使用指南-Android"><a href="#使用指南-Android" class="headerlink" title="使用指南(Android)"></a>使用指南(Android)</h1><h2 id="原生模块-1"><a href="#原生模块-1" class="headerlink" title="原生模块"></a>原生模块</h2><h2 id="原生UI组件-1"><a href="#原生UI组件-1" class="headerlink" title="原生UI组件"></a>原生UI组件</h2><h2 id="Headless-JS（后台任务）"><a href="#Headless-JS（后台任务）" class="headerlink" title="Headless JS（后台任务）"></a>Headless JS（后台任务）</h2><p>##在设备上运行</p>
+<p>##打包APK</p>
+<p>##调试Android UI性能</p>
+<p>##从源代码编译React Native</p>
+<p>##和原生端通信</p>
+<h1 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h1><h2 id="AccessibilityInfo"><a href="#AccessibilityInfo" class="headerlink" title="AccessibilityInfo"></a>AccessibilityInfo</h2><h2 id="ActivityIndicator"><a href="#ActivityIndicator" class="headerlink" title="ActivityIndicator"></a>ActivityIndicator</h2><h2 id="Button"><a href="#Button" class="headerlink" title="Button"></a>Button</h2><h2 id="CheckBox"><a href="#CheckBox" class="headerlink" title="CheckBox"></a>CheckBox</h2><h2 id="DatePickerIOS"><a href="#DatePickerIOS" class="headerlink" title="DatePickerIOS"></a>DatePickerIOS</h2><h2 id="DrawerLayoutAndroid"><a href="#DrawerLayoutAndroid" class="headerlink" title="DrawerLayoutAndroid"></a>DrawerLayoutAndroid</h2><h2 id="FlatList"><a href="#FlatList" class="headerlink" title="FlatList"></a>FlatList</h2><h2 id="Image"><a href="#Image" class="headerlink" title="Image"></a>Image</h2><h2 id="KeyboardAvoidingView"><a href="#KeyboardAvoidingView" class="headerlink" title="KeyboardAvoidingView"></a>KeyboardAvoidingView</h2><h2 id="ListView"><a href="#ListView" class="headerlink" title="ListView"></a>ListView</h2><h2 id="ListView-DataSource"><a href="#ListView-DataSource" class="headerlink" title="ListView.DataSource"></a>ListView.DataSource</h2><h2 id="MaskedViewIOS"><a href="#MaskedViewIOS" class="headerlink" title="MaskedViewIOS"></a>MaskedViewIOS</h2><h2 id="Modal"><a href="#Modal" class="headerlink" title="Modal"></a>Modal</h2><h2 id="NavigatorIOS"><a href="#NavigatorIOS" class="headerlink" title="NavigatorIOS"></a>NavigatorIOS</h2><h2 id="Picker"><a href="#Picker" class="headerlink" title="Picker"></a>Picker</h2><h2 id="PickerIOS"><a href="#PickerIOS" class="headerlink" title="PickerIOS"></a>PickerIOS</h2><h2 id="ProgressBarAndroid"><a href="#ProgressBarAndroid" class="headerlink" title="ProgressBarAndroid"></a>ProgressBarAndroid</h2><h2 id="ProgressViewIOS"><a href="#ProgressViewIOS" class="headerlink" title="ProgressViewIOS"></a>ProgressViewIOS</h2><h2 id="TabBarIOS-Item"><a href="#TabBarIOS-Item" class="headerlink" title="TabBarIOS.Item"></a>TabBarIOS.Item</h2><h2 id="Text"><a href="#Text" class="headerlink" title="Text"></a>Text</h2><h2 id="TextInput"><a href="#TextInput" class="headerlink" title="TextInput"></a>TextInput</h2><h2 id="ToolbarAndroid"><a href="#ToolbarAndroid" class="headerlink" title="ToolbarAndroid"></a>ToolbarAndroid</h2><h2 id="TouchableHighlight"><a href="#TouchableHighlight" class="headerlink" title="TouchableHighlight"></a>TouchableHighlight</h2><h2 id="TouchableNativeFeedback"><a href="#TouchableNativeFeedback" class="headerlink" title="TouchableNativeFeedback"></a>TouchableNativeFeedback</h2><h2 id="TouchableOpacity"><a href="#TouchableOpacity" class="headerlink" title="TouchableOpacity"></a>TouchableOpacity</h2><h2 id="TouchableWithoutFeedback"><a href="#TouchableWithoutFeedback" class="headerlink" title="TouchableWithoutFeedback"></a>TouchableWithoutFeedback</h2><h2 id="View"><a href="#View" class="headerlink" title="View"></a>View</h2><h2 id="ViewPagerAndroid"><a href="#ViewPagerAndroid" class="headerlink" title="ViewPagerAndroid"></a>ViewPagerAndroid</h2><h2 id="VirtualizedList"><a href="#VirtualizedList" class="headerlink" title="VirtualizedList"></a>VirtualizedList</h2><h2 id="WebView"><a href="#WebView" class="headerlink" title="WebView"></a>WebView</h2><h1 id="API"><a href="#API" class="headerlink" title="API"></a>API</h1><h2 id="ActionSheetIOS"><a href="#ActionSheetIOS" class="headerlink" title="ActionSheetIOS"></a>ActionSheetIOS</h2><h2 id="Alert"><a href="#Alert" class="headerlink" title="Alert"></a>Alert</h2><h2 id="AlertIOS"><a href="#AlertIOS" class="headerlink" title="AlertIOS"></a>AlertIOS</h2><h2 id="Animated"><a href="#Animated" class="headerlink" title="Animated"></a>Animated</h2><h2 id="AppRegistry"><a href="#AppRegistry" class="headerlink" title="AppRegistry"></a>AppRegistry</h2><h2 id="AppState"><a href="#AppState" class="headerlink" title="AppState"></a>AppState</h2><h2 id="AsyncStorage"><a href="#AsyncStorage" class="headerlink" title="AsyncStorage"></a>AsyncStorage</h2><h2 id="BackAndroid"><a href="#BackAndroid" class="headerlink" title="BackAndroid"></a>BackAndroid</h2><h2 id="BackHandler"><a href="#BackHandler" class="headerlink" title="BackHandler"></a>BackHandler</h2><h2 id="CameraRoll"><a href="#CameraRoll" class="headerlink" title="CameraRoll"></a>CameraRoll</h2><h2 id="Clipboard"><a href="#Clipboard" class="headerlink" title="Clipboard"></a>Clipboard</h2><h2 id="DatePickerAndroid"><a href="#DatePickerAndroid" class="headerlink" title="DatePickerAndroid"></a>DatePickerAndroid</h2><h2 id="Dimensions"><a href="#Dimensions" class="headerlink" title="Dimensions"></a>Dimensions</h2><h2 id="Easing"><a href="#Easing" class="headerlink" title="Easing"></a>Easing</h2><h2 id="Geolocation"><a href="#Geolocation" class="headerlink" title="Geolocation"></a>Geolocation</h2><h2 id="ImageEditor"><a href="#ImageEditor" class="headerlink" title="ImageEditor"></a>ImageEditor</h2><h2 id="ImagePickerIOS"><a href="#ImagePickerIOS" class="headerlink" title="ImagePickerIOS"></a>ImagePickerIOS</h2><h2 id="ImageStore"><a href="#ImageStore" class="headerlink" title="ImageStore"></a>ImageStore</h2><h2 id="InteractionManager"><a href="#InteractionManager" class="headerlink" title="InteractionManager"></a>InteractionManager</h2><h2 id="Keyboard"><a href="#Keyboard" class="headerlink" title="Keyboard"></a>Keyboard</h2><h2 id="LayoutAnimation"><a href="#LayoutAnimation" class="headerlink" title="LayoutAnimation"></a>LayoutAnimation</h2><h2 id="Linking"><a href="#Linking" class="headerlink" title="Linking"></a>Linking</h2><h2 id="NativeMethodsMixin"><a href="#NativeMethodsMixin" class="headerlink" title="NativeMethodsMixin"></a>NativeMethodsMixin</h2><h2 id="NetInfo"><a href="#NetInfo" class="headerlink" title="NetInfo"></a>NetInfo</h2><h2 id="PanResponder"><a href="#PanResponder" class="headerlink" title="PanResponder"></a>PanResponder</h2><h2 id="PermissionsAndroid"><a href="#PermissionsAndroid" class="headerlink" title="PermissionsAndroid"></a>PermissionsAndroid</h2><h2 id="PixelRatio"><a href="#PixelRatio" class="headerlink" title="PixelRatio"></a>PixelRatio</h2><h2 id="PushNotificationIOS"><a href="#PushNotificationIOS" class="headerlink" title="PushNotificationIOS"></a>PushNotificationIOS</h2><h2 id="Share"><a href="#Share" class="headerlink" title="Share"></a>Share</h2><h2 id="StyleSheet"><a href="#StyleSheet" class="headerlink" title="StyleSheet"></a>StyleSheet</h2><h2 id="Systrace"><a href="#Systrace" class="headerlink" title="Systrace"></a>Systrace</h2><h2 id="TimePickerAndroid"><a href="#TimePickerAndroid" class="headerlink" title="TimePickerAndroid"></a>TimePickerAndroid</h2><h2 id="ToastAndroid"><a href="#ToastAndroid" class="headerlink" title="ToastAndroid"></a>ToastAndroid</h2><h2 id="Vibration"><a href="#Vibration" class="headerlink" title="Vibration"></a>Vibration</h2><h1 id="布局样式属性"><a href="#布局样式属性" class="headerlink" title="布局样式属性"></a>布局样式属性</h1><h1 id="阴影样式属性"><a href="#阴影样式属性" class="headerlink" title="阴影样式属性"></a>阴影样式属性</h1>
+      
+    </div>
+    
+    
+    
+    
+      <div>
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2018/05/16/React-native/">React-native</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 zhanggeng 的个人博客">zhanggeng</a></p>
+  <p><span>发布时间:</span>2018年05月16日 - 16:05</p>
+  <p><span>最后更新:</span>2018年05月16日 - 16:05</p>
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+        });
+    });  
+</script>
+
+      </div>
+    
+    
+
+    
+
+    
+    
+    <div>
+      
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/15/弹性盒子模型/" rel="next" title="弹性盒子模型">
+                <i class="fa fa-chevron-left"></i> 弹性盒子模型
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/20/C-虚函数/" rel="prev" title="C++虚函数">
+                C++虚函数 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="http://i5.tietuku.com/0d972d2b106fc7ea.jpg"
+                alt="zhanggeng" />
+            
+              <p class="site-author-name" itemprop="name">zhanggeng</p>
+              <p class="site-description motion-element" itemprop="description">张庚个人博客</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#React-Native-简单的使用"><span class="nav-number">1.</span> <span class="nav-text">React-Native 简单的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#props"><span class="nav-number">1.1.</span> <span class="nav-text">props</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#state"><span class="nav-number">1.2.</span> <span class="nav-text">state</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#样式"><span class="nav-number">1.3.</span> <span class="nav-text">样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#宽度"><span class="nav-number">1.4.</span> <span class="nav-text">宽度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高度"><span class="nav-number">1.5.</span> <span class="nav-text">高度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用FlexBox布局"><span class="nav-number">1.6.</span> <span class="nav-text">使用FlexBox布局</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#处理文本输入"><span class="nav-number">1.7.</span> <span class="nav-text">处理文本输入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#滚动视图"><span class="nav-number">1.8.</span> <span class="nav-text">滚动视图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用长列表"><span class="nav-number">1.9.</span> <span class="nav-text">使用长列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络"><span class="nav-number">1.10.</span> <span class="nav-text">网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他参考资源"><span class="nav-number">1.11.</span> <span class="nav-text">其他参考资源</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#进阶指南"><span class="nav-number">2.</span> <span class="nav-text">进阶指南</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#集成到现有的原生应用"><span class="nav-number">2.1.</span> <span class="nav-text">集成到现有的原生应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用导航器跳转页面"><span class="nav-number">2.2.</span> <span class="nav-text">使用导航器跳转页面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#颜色"><span class="nav-number">2.3.</span> <span class="nav-text">颜色</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图片"><span class="nav-number">2.4.</span> <span class="nav-text">图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#处理触摸事件"><span class="nav-number">2.5.</span> <span class="nav-text">处理触摸事件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动画"><span class="nav-number">2.6.</span> <span class="nav-text">动画</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#无障碍功能"><span class="nav-number">2.7.</span> <span class="nav-text">无障碍功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定时器"><span class="nav-number">2.8.</span> <span class="nav-text">定时器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#直接操作"><span class="nav-number">2.9.</span> <span class="nav-text">直接操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调试"><span class="nav-number">2.10.</span> <span class="nav-text">调试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自动化测试"><span class="nav-number">2.11.</span> <span class="nav-text">自动化测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript环境"><span class="nav-number">2.12.</span> <span class="nav-text">JavaScript环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#性能"><span class="nav-number">2.13.</span> <span class="nav-text">性能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#升级"><span class="nav-number">2.14.</span> <span class="nav-text">升级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特定平台代码"><span class="nav-number">2.15.</span> <span class="nav-text">特定平台代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#手势响应系统"><span class="nav-number">2.16.</span> <span class="nav-text">手势响应系统</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#社区资源"><span class="nav-number">3.</span> <span class="nav-text">社区资源</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#js-coach第三方组件库"><span class="nav-number">3.1.</span> <span class="nav-text">js.coach第三方组件库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#中文论坛组件分享区"><span class="nav-number">3.2.</span> <span class="nav-text">中文论坛组件分享区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#中文论坛问题求助区"><span class="nav-number">3.3.</span> <span class="nav-text">中文论坛问题求助区</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用指南-IOS"><span class="nav-number">4.</span> <span class="nav-text">使用指南(IOS)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原生模块"><span class="nav-number">4.1.</span> <span class="nav-text">原生模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原生UI组件"><span class="nav-number">4.2.</span> <span class="nav-text">原生UI组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链接原生库"><span class="nav-number">4.3.</span> <span class="nav-text">链接原生库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在设备上运行"><span class="nav-number">4.4.</span> <span class="nav-text">在设备上运行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在模拟器上运行"><span class="nav-number">4.5.</span> <span class="nav-text">在模拟器上运行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#和原生端通信"><span class="nav-number">4.6.</span> <span class="nav-text">和原生端通信</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iOS应用扩展"><span class="nav-number">4.7.</span> <span class="nav-text">iOS应用扩展</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用指南-Android"><span class="nav-number">5.</span> <span class="nav-text">使用指南(Android)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原生模块-1"><span class="nav-number">5.1.</span> <span class="nav-text">原生模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原生UI组件-1"><span class="nav-number">5.2.</span> <span class="nav-text">原生UI组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Headless-JS（后台任务）"><span class="nav-number">5.3.</span> <span class="nav-text">Headless JS（后台任务）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#组件"><span class="nav-number">6.</span> <span class="nav-text">组件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#AccessibilityInfo"><span class="nav-number">6.1.</span> <span class="nav-text">AccessibilityInfo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ActivityIndicator"><span class="nav-number">6.2.</span> <span class="nav-text">ActivityIndicator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Button"><span class="nav-number">6.3.</span> <span class="nav-text">Button</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CheckBox"><span class="nav-number">6.4.</span> <span class="nav-text">CheckBox</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DatePickerIOS"><span class="nav-number">6.5.</span> <span class="nav-text">DatePickerIOS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DrawerLayoutAndroid"><span class="nav-number">6.6.</span> <span class="nav-text">DrawerLayoutAndroid</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FlatList"><span class="nav-number">6.7.</span> <span class="nav-text">FlatList</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Image"><span class="nav-number">6.8.</span> <span class="nav-text">Image</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#KeyboardAvoidingView"><span class="nav-number">6.9.</span> <span class="nav-text">KeyboardAvoidingView</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ListView"><span class="nav-number">6.10.</span> <span class="nav-text">ListView</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ListView-DataSource"><span class="nav-number">6.11.</span> <span class="nav-text">ListView.DataSource</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MaskedViewIOS"><span class="nav-number">6.12.</span> <span class="nav-text">MaskedViewIOS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Modal"><span class="nav-number">6.13.</span> <span class="nav-text">Modal</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NavigatorIOS"><span class="nav-number">6.14.</span> <span class="nav-text">NavigatorIOS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Picker"><span class="nav-number">6.15.</span> <span class="nav-text">Picker</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PickerIOS"><span class="nav-number">6.16.</span> <span class="nav-text">PickerIOS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ProgressBarAndroid"><span class="nav-number">6.17.</span> <span class="nav-text">ProgressBarAndroid</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ProgressViewIOS"><span class="nav-number">6.18.</span> <span class="nav-text">ProgressViewIOS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TabBarIOS-Item"><span class="nav-number">6.19.</span> <span class="nav-text">TabBarIOS.Item</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Text"><span class="nav-number">6.20.</span> <span class="nav-text">Text</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TextInput"><span class="nav-number">6.21.</span> <span class="nav-text">TextInput</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ToolbarAndroid"><span class="nav-number">6.22.</span> <span class="nav-text">ToolbarAndroid</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TouchableHighlight"><span class="nav-number">6.23.</span> <span class="nav-text">TouchableHighlight</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TouchableNativeFeedback"><span class="nav-number">6.24.</span> <span class="nav-text">TouchableNativeFeedback</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TouchableOpacity"><span class="nav-number">6.25.</span> <span class="nav-text">TouchableOpacity</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TouchableWithoutFeedback"><span class="nav-number">6.26.</span> <span class="nav-text">TouchableWithoutFeedback</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#View"><span class="nav-number">6.27.</span> <span class="nav-text">View</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ViewPagerAndroid"><span class="nav-number">6.28.</span> <span class="nav-text">ViewPagerAndroid</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VirtualizedList"><span class="nav-number">6.29.</span> <span class="nav-text">VirtualizedList</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WebView"><span class="nav-number">6.30.</span> <span class="nav-text">WebView</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#API"><span class="nav-number">7.</span> <span class="nav-text">API</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ActionSheetIOS"><span class="nav-number">7.1.</span> <span class="nav-text">ActionSheetIOS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Alert"><span class="nav-number">7.2.</span> <span class="nav-text">Alert</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AlertIOS"><span class="nav-number">7.3.</span> <span class="nav-text">AlertIOS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Animated"><span class="nav-number">7.4.</span> <span class="nav-text">Animated</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AppRegistry"><span class="nav-number">7.5.</span> <span class="nav-text">AppRegistry</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AppState"><span class="nav-number">7.6.</span> <span class="nav-text">AppState</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AsyncStorage"><span class="nav-number">7.7.</span> <span class="nav-text">AsyncStorage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BackAndroid"><span class="nav-number">7.8.</span> <span class="nav-text">BackAndroid</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BackHandler"><span class="nav-number">7.9.</span> <span class="nav-text">BackHandler</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CameraRoll"><span class="nav-number">7.10.</span> <span class="nav-text">CameraRoll</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Clipboard"><span class="nav-number">7.11.</span> <span class="nav-text">Clipboard</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DatePickerAndroid"><span class="nav-number">7.12.</span> <span class="nav-text">DatePickerAndroid</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dimensions"><span class="nav-number">7.13.</span> <span class="nav-text">Dimensions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Easing"><span class="nav-number">7.14.</span> <span class="nav-text">Easing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Geolocation"><span class="nav-number">7.15.</span> <span class="nav-text">Geolocation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ImageEditor"><span class="nav-number">7.16.</span> <span class="nav-text">ImageEditor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ImagePickerIOS"><span class="nav-number">7.17.</span> <span class="nav-text">ImagePickerIOS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ImageStore"><span class="nav-number">7.18.</span> <span class="nav-text">ImageStore</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#InteractionManager"><span class="nav-number">7.19.</span> <span class="nav-text">InteractionManager</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Keyboard"><span class="nav-number">7.20.</span> <span class="nav-text">Keyboard</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LayoutAnimation"><span class="nav-number">7.21.</span> <span class="nav-text">LayoutAnimation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linking"><span class="nav-number">7.22.</span> <span class="nav-text">Linking</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NativeMethodsMixin"><span class="nav-number">7.23.</span> <span class="nav-text">NativeMethodsMixin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NetInfo"><span class="nav-number">7.24.</span> <span class="nav-text">NetInfo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PanResponder"><span class="nav-number">7.25.</span> <span class="nav-text">PanResponder</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PermissionsAndroid"><span class="nav-number">7.26.</span> <span class="nav-text">PermissionsAndroid</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PixelRatio"><span class="nav-number">7.27.</span> <span class="nav-text">PixelRatio</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PushNotificationIOS"><span class="nav-number">7.28.</span> <span class="nav-text">PushNotificationIOS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Share"><span class="nav-number">7.29.</span> <span class="nav-text">Share</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#StyleSheet"><span class="nav-number">7.30.</span> <span class="nav-text">StyleSheet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Systrace"><span class="nav-number">7.31.</span> <span class="nav-text">Systrace</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TimePickerAndroid"><span class="nav-number">7.32.</span> <span class="nav-text">TimePickerAndroid</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ToastAndroid"><span class="nav-number">7.33.</span> <span class="nav-text">ToastAndroid</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vibration"><span class="nav-number">7.34.</span> <span class="nav-text">Vibration</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#布局样式属性"><span class="nav-number">8.</span> <span class="nav-text">布局样式属性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#阴影样式属性"><span class="nav-number">9.</span> <span class="nav-text">阴影样式属性</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <!--<div class="copyright">&copy; 
+   <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhanggeng</span> 
+
+  
+
+</div>-->
+
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+-->
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-balance-scale"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhanggeng</span>
+</div>
+
+<div class="busuanzi-count">
+    <script async="" src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      访问用户： <span class="busuanzi-value" id="busuanzi_value_site_uv"></span> 人
+    </span>
+    <div class="powered-by"></div>
+    <span class="site-uv">
+      <i class="fa fa-eye"></i>
+      访问次数： <span class="busuanzi-value" id="busuanzi_value_site_pv"></span> 次
+    </span>
+    <!-- 博客字数统计 -->
+    <span class="site-pv">
+      <i class="fa fa-pencil"></i>
+      博客全站共： <span class="post-count">54.0k</span> 字
+    </span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<!-- <script type="text/javascript" src="/js/src/love.js"></script> -->

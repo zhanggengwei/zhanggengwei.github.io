@@ -88,18 +88,18 @@
 
 
 
-<meta name="description" content="张庚个人博客">
+<meta name="description" content="#FFMPEG 函数 swr_convert1解码得到的数据类型为float 4bit，而播放器播放的格式一般为S16（signed 16bit）,就需要对解码得到的数据进行转换 函数原型1int swr_convert(struct SwrContext * s, uint8_t ** out,   int out_count, const uint8_t ** in,  int in_coun">
 <meta name="keywords" content="张庚">
 <meta property="og:type" content="article">
-<meta property="og:title" content="demo1">
-<meta property="og:url" content="http://yoursite.com/2018/05/07/demo1/index.html">
+<meta property="og:title" content="FFMPEG-函数详解">
+<meta property="og:url" content="http://yoursite.com/2018/06/03/FFMPEG-函数详解/index.html">
 <meta property="og:site_name" content="Blogs">
-<meta property="og:description" content="张庚个人博客">
+<meta property="og:description" content="#FFMPEG 函数 swr_convert1解码得到的数据类型为float 4bit，而播放器播放的格式一般为S16（signed 16bit）,就需要对解码得到的数据进行转换 函数原型1int swr_convert(struct SwrContext * s, uint8_t ** out,   int out_count, const uint8_t ** in,  int in_coun">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-06T23:40:06.586Z">
+<meta property="og:updated_time" content="2018-06-09T04:18:15.553Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="demo1">
-<meta name="twitter:description" content="张庚个人博客">
+<meta name="twitter:title" content="FFMPEG-函数详解">
+<meta name="twitter:description" content="#FFMPEG 函数 swr_convert1解码得到的数据类型为float 4bit，而播放器播放的格式一般为S16（signed 16bit）,就需要对解码得到的数据进行转换 函数原型1int swr_convert(struct SwrContext * s, uint8_t ** out,   int out_count, const uint8_t ** in,  int in_coun">
 
 
 
@@ -129,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/07/demo1/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/03/FFMPEG-函数详解/"/>
 
 
 
 
 
-  <title>demo1 | Blogs</title>
+  <title>FFMPEG-函数详解 | Blogs</title>
   
 
 
@@ -272,7 +272,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/07/demo1/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/03/FFMPEG-函数详解/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhanggeng">
@@ -289,7 +289,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">demo1</h1>
+          <h1 class="post-title" itemprop="name headline">FFMPEG-函数详解</h1>
         
 
         <div class="post-meta">
@@ -301,8 +301,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-07T07:36:34+08:00">
-                2018-05-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-03T09:14:11+08:00">
+                2018-06-03
               </time>
             
 
@@ -311,28 +311,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/电影评论/" itemprop="url" rel="index">
-                    <span itemprop="name">电影评论</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -358,7 +336,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  3
                 </span>
               
             </div>
@@ -379,7 +357,53 @@
       
 
       
-        
+        <p>#FFMPEG 函数</p>
+<h2 id="swr-convert"><a href="#swr-convert" class="headerlink" title="swr_convert"></a>swr_convert</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">解码得到的数据类型为float 4bit，而播放器播放的格式一般为S16（signed 16bit）,就需要对解码得到的数据进行转换</span><br></pre></td></tr></table></figure>
+<h3 id="函数原型"><a href="#函数原型" class="headerlink" title="函数原型"></a>函数原型</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int swr_convert(struct SwrContext * s, uint8_t ** out,   int out_count, const uint8_t ** in,  int in_count )</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>s</td>
+<td>allocated Swr context, with parameters set</td>
+</tr>
+<tr>
+<td>out</td>
+<td>output buffers, only the first one need be set in case of packed audio</td>
+</tr>
+<tr>
+<td>out_count</td>
+<td>amount of space available for output in samples per channel</td>
+</tr>
+<tr>
+<td>in</td>
+<td>input buffers, only the first one need to be set in case of packed audio</td>
+</tr>
+<tr>
+<td>in_count</td>
+<td>number of input samples available in one channel</td>
+</tr>
+</tbody>
+</table>
+<h2 id="av-samples-get-buffer-size"><a href="#av-samples-get-buffer-size" class="headerlink" title="av_samples_get_buffer_size"></a>av_samples_get_buffer_size</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int av_samples_get_buffer_size(int *linesize, int nb_channels, int nb_samples,  </span><br><span class="line">enum AVSampleFormat sample_fmt, int alig)</span><br></pre></td></tr></table></figure>
+<p>音频一般是采用成PCM格式，而计算PCM格式音频尺寸，就需要如下几个参数。</p>
+<p>通道数，采样频率，采用格式。</p>
+<p>通道数：个人理解，就是同时有个几个设备在进行音频的采样，最少为1，一般通道数越多，音质越好。<br>采样频率：（也称为采样速度或者采样频率）定义了每秒从连续信号中提取并组成离散信号的采样个数，它用赫兹（Hz）来表示。<br>采用位数：既然采样频率表示每秒采样的个数，那么如何描述每个采样点呢？用什么方法独立每个采样点值的区别呢？也就是如何度量每个采样点，而这正是采样格式出现的意义。通常使用16bit，也就是2的16次方，共有65536个不同的度量值，这样采样位数越高，音频度量化的就越精细，音质同样也就越高。</p>
+<p>所以音频所占用字节数 = 通道数 <em> 采用频率(Hz) </em> 采用位数(byte)</p>
+<p>而在ffmpeg里面就使用av_sample_get_buffer_size来计算音频占用的字节数。</p>
+<h2 id="av-frame-get-best-effort-timestamp"><a href="#av-frame-get-best-effort-timestamp" class="headerlink" title="av_frame_get_best_effort_timestamp"></a>av_frame_get_best_effort_timestamp</h2><p>获得音频的位置</p>
+<h2 id="av-frame-get-pkt-duration"><a href="#av-frame-get-pkt-duration" class="headerlink" title="av_frame_get_pkt_duration"></a>av_frame_get_pkt_duration</h2><p>获得音频数据播放的时长</p>
+<h1 id="SwrContext"><a href="#SwrContext" class="headerlink" title="SwrContext"></a>SwrContext</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">重采样</span><br></pre></td></tr></table></figure>
+<p>重采样，也就是对已得到的数据进行重新的采样；比如，原先的PCM音频数据是2 个声道，44100采样率，32bit 单精度型(sample format采样格式)。那么通过重采样，我们改变它的声道数、采样率和采样格式。</p>
+<h2 id="AVSampleFormat"><a href="#AVSampleFormat" class="headerlink" title="AVSampleFormat"></a>AVSampleFormat</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">enum AVSampleFormat &#123;  </span><br><span class="line">  AV_SAMPLE_FMT_NONE = -1,  </span><br><span class="line">	AV_SAMPLE_FMT_U8, ///&lt; unsigned 8 bits  </span><br><span class="line">	AV_SAMPLE_FMT_S16,///&lt; signed 16 bits  </span><br><span class="line">	AV_SAMPLE_FMT_S32,///&lt; signed 32 bits  </span><br><span class="line">	AV_SAMPLE_FMT_FLT, ///&lt; float  </span><br><span class="line">	AV_SAMPLE_FMT_DBL, ///&lt; double  </span><br><span class="line">	AV_SAMPLE_FMT_U8P, ///&lt; unsigned 8 bits, planar  </span><br><span class="line">	AV_SAMPLE_FMT_S16P,  ///&lt; signed 16 bits, planar  </span><br><span class="line">	AV_SAMPLE_FMT_S32P, ///&lt; signed 32 bits, planar  </span><br><span class="line">	AV_SAMPLE_FMT_FLTP,  ///&lt; float, planar  </span><br><span class="line">	AV_SAMPLE_FMT_DBLP, ///&lt; double, planar  </span><br><span class="line">	AV_SAMPLE_FMT_S64, ///&lt; signed 64 bits  </span><br><span class="line">	AV_SAMPLE_FMT_S64P, ///&lt; signed 64 bits, planar </span><br><span class="line">	AV_SAMPLE_FMT_NB //&lt; Number of sample formats. DO NOT USE if linking dynamically  </span><br><span class="line">	&#125;;</span><br></pre></td></tr></table></figure>
+<p>vDSP_vflt16将非交错的16位带符号整数（non-interleaved 16-bit signed integers）转换成单精度浮点数。为什么是16位带符号整数？原因是，这取决于<br>AudioStreamBasicDescription.mBitsPerChannel字段的值。当AudioStreamBasicDescription.mBitsPerChannel为16时，则调用vDSP_vflt16。<br>当AudioStreamBasicDescription.mBitsPerChannel为32时，则调用vDSP_vflt32。</p>
+<p>vDSP_vsmul()对数据做了一个乘法的运算</p>
+
       
     </div>
     
@@ -388,6 +412,31 @@
     
       <div>
         
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2018/06/03/FFMPEG-函数详解/">FFMPEG-函数详解</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 zhanggeng 的个人博客">zhanggeng</a></p>
+  <p><span>发布时间:</span>2018年06月03日 - 09:06</p>
+  <p><span>最后更新:</span>2018年06月09日 - 12:06</p>
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+        });
+    });  
+</script>
+
       </div>
     
     
@@ -417,14 +466,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/05/31/OPENGLES-基础篇/" rel="next" title="OPENGLES-基础篇">
+                <i class="fa fa-chevron-left"></i> OPENGLES-基础篇
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/07/IOS-Audio/" rel="prev" title="IOS-Audio">
-                IOS-Audio <i class="fa fa-chevron-right"></i>
+              <a href="/2018/06/13/关键字的底层实现原理/" rel="prev" title="__block 实现原理">
+                __block 实现原理 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -477,8 +530,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -497,7 +559,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -508,7 +570,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -540,6 +602,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#swr-convert"><span class="nav-number">1.</span> <span class="nav-text">swr_convert</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数原型"><span class="nav-number">1.1.</span> <span class="nav-text">函数原型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#av-samples-get-buffer-size"><span class="nav-number">2.</span> <span class="nav-text">av_samples_get_buffer_size</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#av-frame-get-best-effort-timestamp"><span class="nav-number">3.</span> <span class="nav-text">av_frame_get_best_effort_timestamp</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#av-frame-get-pkt-duration"><span class="nav-number">4.</span> <span class="nav-text">av_frame_get_pkt_duration</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SwrContext"><span class="nav-number"></span> <span class="nav-text">SwrContext</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#AVSampleFormat"><span class="nav-number">1.</span> <span class="nav-text">AVSampleFormat</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -604,7 +682,7 @@
     <!-- 博客字数统计 -->
     <span class="site-pv">
       <i class="fa fa-pencil"></i>
-      博客全站共： <span class="post-count">498</span> 字
+      博客全站共： <span class="post-count">54.0k</span> 字
     </span>
 </div>
 

@@ -88,18 +88,18 @@
 
 
 
-<meta name="description" content="张庚个人博客">
+<meta name="description" content="1在block内如何修改block外部变量？ 默认情况下，在block中访问的外部变量是复制过去的，即：写操作不对原变量生效。但是你可以加上 __block 来让其写操作生效，示例代码如下: 123456__block int a = 0;void (^foo)(void) = ^&amp;#123;        a = 1;  &amp;#125;;foo(); //这里，a的值被修改为1 1我们都知道：Bl">
 <meta name="keywords" content="张庚">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js-第一天">
-<meta property="og:url" content="http://yoursite.com/2018/05/08/js-第一天/index.html">
+<meta property="og:title" content="__block 实现原理">
+<meta property="og:url" content="http://yoursite.com/2018/06/13/关键字的底层实现原理/index.html">
 <meta property="og:site_name" content="Blogs">
-<meta property="og:description" content="张庚个人博客">
+<meta property="og:description" content="1在block内如何修改block外部变量？ 默认情况下，在block中访问的外部变量是复制过去的，即：写操作不对原变量生效。但是你可以加上 __block 来让其写操作生效，示例代码如下: 123456__block int a = 0;void (^foo)(void) = ^&amp;#123;        a = 1;  &amp;#125;;foo(); //这里，a的值被修改为1 1我们都知道：Bl">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-08T05:54:43.419Z">
+<meta property="og:updated_time" content="2018-06-13T03:13:36.062Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js-第一天">
-<meta name="twitter:description" content="张庚个人博客">
+<meta name="twitter:title" content="__block 实现原理">
+<meta name="twitter:description" content="1在block内如何修改block外部变量？ 默认情况下，在block中访问的外部变量是复制过去的，即：写操作不对原变量生效。但是你可以加上 __block 来让其写操作生效，示例代码如下: 123456__block int a = 0;void (^foo)(void) = ^&amp;#123;        a = 1;  &amp;#125;;foo(); //这里，a的值被修改为1 1我们都知道：Bl">
 
 
 
@@ -129,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/08/js-第一天/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/13/关键字的底层实现原理/"/>
 
 
 
 
 
-  <title>js-第一天 | Blogs</title>
+  <title>__block 实现原理 | Blogs</title>
   
 
 
@@ -272,7 +272,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/08/js-第一天/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/13/关键字的底层实现原理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhanggeng">
@@ -289,7 +289,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">js-第一天</h1>
+          <h1 class="post-title" itemprop="name headline">__block 实现原理</h1>
         
 
         <div class="post-meta">
@@ -301,8 +301,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-08T13:53:26+08:00">
-                2018-05-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-13T09:25:14+08:00">
+                2018-06-13
               </time>
             
 
@@ -324,8 +324,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/js/" itemprop="url" rel="index">
-                    <span itemprop="name">js</span>
+                  <a href="/categories/IOS/" itemprop="url" rel="index">
+                    <span itemprop="name">IOS</span>
                   </a>
                 </span>
 
@@ -358,7 +358,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  3
                 </span>
               
             </div>
@@ -379,7 +379,17 @@
       
 
       
-        
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在block内如何修改block外部变量？</span><br></pre></td></tr></table></figure>
+<p>默认情况下，在block中访问的外部变量是复制过去的，即：写操作不对原变量生效。但是你可以加上 __block 来让其写操作生效，示例代码如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">__block int a = 0;</span><br><span class="line">void (^foo)(void) = ^&#123; </span><br><span class="line">       a = 1; </span><br><span class="line"> &#125;;</span><br><span class="line">foo(); </span><br><span class="line">//这里，a的值被修改为1</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">我们都知道：Block不允许修改外部变量的值，这里所说的外部变量的值，指的是栈中指针的内存地址。__block 所起到的作用就是只要观察到该变量被 block 所持有，就将“外部变量”在栈中的内存地址放到了堆中。进而在block内部也可以修改外部变量的值。</span><br></pre></td></tr></table></figure>
+<p>Block不允许修改外部变量的值Apple这样设计，应该是考虑到了block的特殊性，block也属于“函数”的范畴，变量进入block，实际就是已经改变了作用域。在几个作用域之间进行切换时，如果不加上这样的限制，变量的可维护性将大大降低。又比如我想在block内声明了一个与外部同名的变量，此时是允许呢还是不允许呢？只有加上了这样的限制，这样的情景才能实现</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">__block int a = 0;</span><br><span class="line">NSLog(@&quot;定义前：%p&quot;, &amp;a);         //栈区</span><br><span class="line"> void (^foo)(void) = ^&#123;</span><br><span class="line">       a = 1;</span><br><span class="line">       NSLog(@&quot;block内部：%p&quot;, &amp;a);    //堆区</span><br><span class="line">   &#125;;</span><br><span class="line">NSLog(@&quot;定义后：%p&quot;, &amp;a);         //堆区</span><br><span class="line">foo();</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2016-05-17 02:03:33.559 LeanCloudChatKit-iOS[1505:713679] 定义前：0x16fda86f8</span><br><span class="line">2016-05-17 02:03:33.559 LeanCloudChatKit-iOS[1505:713679] 定义后：0x155b22fc8</span><br><span class="line">2016-05-17 02:03:33.559 LeanCloudChatKit-iOS[1505:713679] block内部： 0x155b22fc8</span><br></pre></td></tr></table></figure>
+<p>定义后”和“block内部”两者的内存地址是一样的，我们都知道 block 内部的变量会被 copy 到堆区，“block内部”打印的是堆地址，因而也就可以知道，“定义后”打印的也是堆的地址</p>
+<p>那么如何证明“block内部”打印的是堆地址？<br>把三个16进制的内存地址转成10进制就是<br>    1    定义后前：6171559672<br>    2    block内部：5732708296<br>    3    定义后后：5732708296<br>中间相差438851376个字节，也就是 418.5M 的空间，因为堆地址要小于栈地址，又因为iOS中一个进程的栈区内存只有1M，Mac也只有8M，显然a已经是在堆区了<br>这也证实了：a 在定义前是栈区，但只要进入了 block 区域，就变成了堆区。这才是 __block 关键字的真正作用。</p>
+<p>block本身是像对象一样可以retain，和release。但是，block在创建的时候，它的内存是分配在栈(stack)上，而不是在堆(heap)上。他本身的作于域是属于创建时候的作用域，一旦在创建时候的作用域外面调用block将导致程序崩溃。使用retain也可以，但是block的retain行为默认是用copy的行为实现的，<br>因为block变量默认是声明为栈变量的，为了能够在block的声明域外使用，所以要把block拷贝（copy）到堆，所以说为了block属性声明和实际的操作一致，最好声明为copy。</p>
+
       
     </div>
     
@@ -394,10 +404,10 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2018/05/08/js-第一天/">js-第一天</a></p>
+  <p><span>本文标题:</span><a href="/2018/06/13/关键字的底层实现原理/">__block 实现原理</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 zhanggeng 的个人博客">zhanggeng</a></p>
-  <p><span>发布时间:</span>2018年05月08日 - 13:05</p>
-  <p><span>最后更新:</span>2018年05月08日 - 13:05</p>
+  <p><span>发布时间:</span>2018年06月13日 - 09:06</p>
+  <p><span>最后更新:</span>2018年06月13日 - 11:06</p>
 </div>
 <script> 
     var clipboard = new Clipboard('.fa-clipboard');
@@ -442,8 +452,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/08/AudioUnit/" rel="next" title="AudioUnit">
-                <i class="fa fa-chevron-left"></i> AudioUnit
+              <a href="/2018/06/03/FFMPEG-函数详解/" rel="next" title="FFMPEG-函数详解">
+                <i class="fa fa-chevron-left"></i> FFMPEG-函数详解
               </a>
             
           </div>
@@ -452,8 +462,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/08/jquery-01/" rel="prev" title="jquery-01">
-                jquery-01 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/06/13/KVO-详解/" rel="prev" title="KVO KVC -详解">
+                KVO KVC -详解 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -526,7 +536,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -537,7 +547,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -633,7 +643,7 @@
     <!-- 博客字数统计 -->
     <span class="site-pv">
       <i class="fa fa-pencil"></i>
-      博客全站共： <span class="post-count">7.8k</span> 字
+      博客全站共： <span class="post-count">54.0k</span> 字
     </span>
 </div>
 

@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-center-atom.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Blogs" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="侧重于函数的的应用 socketsocket12int socket(int domain,int type,int protocol)返回0代表socket创建成功,-1socket创建失败    参数 含义     domain 地址族   type 套接字的数据类型   protocol 协议（跟type有关）       domain 含义     AF_INET IPv4协议   AF_">
+<meta name="keywords" content="张庚">
+<meta property="og:type" content="article">
+<meta property="og:title" content="socket-详解">
+<meta property="og:url" content="http://yoursite.com/2018/07/05/socket-详解/index.html">
+<meta property="og:site_name" content="Blogs">
+<meta property="og:description" content="侧重于函数的的应用 socketsocket12int socket(int domain,int type,int protocol)返回0代表socket创建成功,-1socket创建失败    参数 含义     domain 地址族   type 套接字的数据类型   protocol 协议（跟type有关）       domain 含义     AF_INET IPv4协议   AF_">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-07-05T02:30:27.821Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="socket-详解">
+<meta name="twitter:description" content="侧重于函数的的应用 socketsocket12int socket(int domain,int type,int protocol)返回0代表socket创建成功,-1socket创建失败    参数 含义     domain 地址族   type 套接字的数据类型   protocol 协议（跟type有关）       domain 含义     AF_INET IPv4协议   AF_">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/07/05/socket-详解/"/>
+
+
+
+
+
+  <title>socket-详解 | Blogs</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Blogs</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">张庚</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home 首页"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user 关于"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags 标签"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th 分类"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive 归档"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/05/socket-详解/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhanggeng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://i5.tietuku.com/0d972d2b106fc7ea.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blogs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">socket-详解</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-05T09:39:12+08:00">
+                2018-07-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/socket/" itemprop="url" rel="index">
+                    <span itemprop="name">socket</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>侧重于函数的的应用</p>
+<h1 id="socket"><a href="#socket" class="headerlink" title="socket"></a>socket</h1><h2 id="socket-1"><a href="#socket-1" class="headerlink" title="socket"></a>socket</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int socket(int domain,int type,int protocol)</span><br><span class="line">返回0代表socket创建成功,-1socket创建失败</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>domain</td>
+<td>地址族</td>
+</tr>
+<tr>
+<td>type</td>
+<td>套接字的数据类型</td>
+</tr>
+<tr>
+<td>protocol</td>
+<td>协议（跟type有关）</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>domain</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AF_INET</td>
+<td>IPv4协议</td>
+</tr>
+<tr>
+<td>AF_INET6</td>
+<td>IPv6协议</td>
+</tr>
+<tr>
+<td>AF_LOCAL</td>
+<td>Unix域协议</td>
+</tr>
+<tr>
+<td>AF_ROUTE</td>
+<td>路由套接字</td>
+</tr>
+<tr>
+<td>AF_KEY</td>
+<td>密钥套接字</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>protocol</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IPPROTO_TCP</td>
+<td>TCP传输协议</td>
+</tr>
+<tr>
+<td>IPPROTO_UDP</td>
+<td>UDP传输协议</td>
+</tr>
+<tr>
+<td>IPPROTO_SCTP</td>
+<td>SCTP传输协议</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>type</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SOCK_STREAM</td>
+<td>字节流套接字</td>
+</tr>
+<tr>
+<td>SOCK_DGRAM</td>
+<td>数据报套接字</td>
+</tr>
+<tr>
+<td>SOCK_SEQPACKET</td>
+<td>有序分组套接字</td>
+</tr>
+<tr>
+<td>SOCK_RAW</td>
+<td>原始套接字</td>
+</tr>
+</tbody>
+</table>
+<h2 id="socketpair"><a href="#socketpair" class="headerlink" title="socketpair"></a>socketpair</h2><p>使用socketpiar创建的是一对相互连接的socket，任意一段既可以做发送，也可以做接受端。所有每个socket描述符中应该有两个buf。一个为发送buf，一个为接受buf。如上图所示。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line"></span><br><span class="line">注意:  socketpair创建的只适用于父子进程或者线程间通信，不能用于两个进程之间通信。如果要实现两个进程之间的双向通信，则需要将socketpair创建的一个描述符fd发送给另一个进程，这相当于两个两个不同的进程访问同一个文件。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## getsockopt setsockopt</span><br><span class="line">获得socket属性</span><br></pre></td></tr></table></figure>
+<p>int getsockopt(int sockfd, int level, int name, char <em>value, int </em>optlen);<br>int setsockopt(int sockfd, int level, int name, char <em>value, int </em>optlen);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">对于socket编程，level一般为常数SOL_SOCKET</span><br><span class="line">name属性类型，value属性参数，optlen属性内存块的长度</span><br><span class="line">常用的有：</span><br><span class="line"></span><br><span class="line">|optlen|含义|</span><br><span class="line">|----|----|</span><br><span class="line">|SO_RCVTIMEO|设置/获得接收的timeout|</span><br><span class="line">|SO_SNDTIMEO|设置/获得发送的timeout|</span><br><span class="line">|SO_SNDBUF|获得或设置socket发送的buffer大小|</span><br><span class="line">|SO_RCVBUF|获得或设置socket接收的buffer大小|</span><br><span class="line">|SO_BROADCAST|获得或设置socket状况，使之可以广播发送数据报。（只能用于UDP方式）。|</span><br><span class="line">|SO_REUSEADDR|设置该socket绑定的端口可以被重用。|</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">注意：在Linux系统中，如果一个socket绑定了某个端口，该socket正常关闭或程序退出后，在一段时间内该端口依然保持被绑定的状态，其他程序（或者重新启动的原程序）无法绑定该端口。可以通过调用以下语句避免该问题</span><br></pre></td></tr></table></figure></p>
+<p>opt = 1; len = sizeof(opt); setsockopt(sockfd,SOL_SOCKET,SO_REUSEADDR,&amp;opt,&amp;len);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## getpeername</span><br><span class="line"></span><br><span class="line">取得对方主机的信息</span><br></pre></td></tr></table></figure></p>
+<p>int getpeername(int sockfd, struct sockaddr <em>addr, int </em>addrlen);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">addr存有返回的主机信息。</span><br></pre></td></tr></table></figure></p>
+<p>示例：<br>struct sockaddr_in sa;<br>int len = sizeof(sa);<br>getpeername(sockfd, (struct sockaddr *)&amp;sa, &amp;len);<br>printf(“对方IP：%s”, inet_ntoa(sa.sin_addr));<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">## getsockname</span><br><span class="line"></span><br><span class="line">取得本地信息</span><br></pre></td></tr></table></figure></p>
+<p>int getsockname(int sockfd, struct sockaddr <em>addr, int </em>addrlen);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">addr存有返回的主机信息</span><br></pre></td></tr></table></figure></p>
+<p>struct sockaddr_in sa;<br>int len = sizeof(sa);<br>getpeername(sockfd, (struct sockaddr *)&amp;sa, &amp;len);<br>printf(“本地IP：%s”, inet_ntoa(sa.sin_addr));<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## bind</span><br><span class="line"></span><br><span class="line">bind函数把一个本地协议地址赋予一个套接字</span><br></pre></td></tr></table></figure></p>
+<p>int bind(int sockfd,const struct sockaddr *myaddr,socklen_t addrlen)<br>成功返回0 不成功返回-1<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">|参数|含义|</span><br><span class="line">|----|----|</span><br><span class="line">|sockfd|socket(int,int,int) 创建出来的|</span><br><span class="line">|myaddr|服务器地址的指针|</span><br><span class="line">|addrlen|myaddr的长度|</span><br><span class="line"></span><br><span class="line">## connect</span><br><span class="line"></span><br><span class="line">TCP客户用connect函数来建立与TCP服务器的连接.</span><br></pre></td></tr></table></figure></p>
+<p>int connect(int sockfd,const struct sockaddr *servaddr,socklen_t addrlen)<br>成功返回0 不成功返回-1<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">|参数|含义|</span><br><span class="line">|----|----|</span><br><span class="line">|sockfd|socket(int,int,int) 创建出来的|</span><br><span class="line">|servaddr|服务端地址的指针|</span><br><span class="line">|addrlen|servaddr的长度|</span><br><span class="line"></span><br><span class="line">## listen</span><br><span class="line"></span><br><span class="line">当socket函数创建一个套接字时,它被假设为一个主动套接字,也就是说它是一个将调用connect发起连接的客户套接字,listen函数把一个未连接的套接字转换成一个被动套接字,指示内核应接受指向该套接字的连接请求.</span><br></pre></td></tr></table></figure></p>
+<p>int listen(int sockfd,int backlog)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">|参数|含义|</span><br><span class="line">|----|----|</span><br><span class="line">|sockfd|socket(int,int,int) 创建出来的|</span><br><span class="line">|backlog|backlog为相应套接字排队的最大连接个数|</span><br><span class="line"></span><br><span class="line">## accept</span><br><span class="line"></span><br><span class="line">accept函数由TCP服务器调用,用于从一个已完成连接的队列队头返回下一个已完成连接.</span><br></pre></td></tr></table></figure>
+<p>int accept(int sockfd,struct sockaddr <em>cliaddr,socklen_t </em>addrlen)<br>成功返回非负，失败返回-1 返回值就是客户端的套接字<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>如果accept成功,那么其返回值是由内核自动生成的一个全新描述符,它的第一个参数为监听套接字描述符,返回值为已连接套接字描述符.一个服务器通常仅仅创建一个监听套接字,它在服务器的生命期内一直存在.内核为每个由服务器进程接受的客户连接创建一个已连接套接字.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## close</span><br><span class="line"></span><br><span class="line">关闭连接将中断对该socket的读写操作。</span><br><span class="line">关闭用于listen()的socket描述符将禁止其他Client的连接请求。</span><br></pre></td></tr></table></figure></p>
+<p>int close(int sockfd);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">## shutdown</span><br><span class="line"></span><br><span class="line">shutdown()函数可以单方面的中断连接，即禁止某个方向的信息传递。</span><br></pre></td></tr></table></figure></p>
+<p>int shutdown(int sockfd, int how);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">|参数|含义|</span><br><span class="line">|-----|-----|</span><br><span class="line">|sockfd||</span><br><span class="line">|how|0 - 禁止接收信息1 - 禁止发送信息2 - 接收和发送都被禁止，与close()函数效果相同|</span><br><span class="line"></span><br><span class="line">## gethostbyname</span><br><span class="line"></span><br><span class="line">获得DNS信息：</span><br><span class="line"></span><br><span class="line">## inet_addr</span><br></pre></td></tr></table></figure></p>
+<p>unsigned long inet_addr(const char* cp);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## inet_ntoa</span><br></pre></td></tr></table></figure></p>
+<p>char* inet_ntoa(struct in_addr in);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 获得或改变socket的I/O属性：</span><br><span class="line">### ioctl</span><br><span class="line"> ioctl函数用于在套接字上控制套接字的I/O行为，同时获取与套接字挂起的I/O操作的有关信息</span><br><span class="line"> </span><br><span class="line"> ```</span><br></pre></td></tr></table></figure></p>
+<h3 id="fcntl"><a href="#fcntl" class="headerlink" title="fcntl"></a>fcntl</h3>
+      
+    </div>
+    
+    
+    
+    
+      <div>
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2018/07/05/socket-详解/">socket-详解</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 zhanggeng 的个人博客">zhanggeng</a></p>
+  <p><span>发布时间:</span>2018年07月05日 - 09:07</p>
+  <p><span>最后更新:</span>2018年07月05日 - 10:07</p>
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+        });
+    });  
+</script>
+
+      </div>
+    
+    
+
+    
+
+    
+    
+    <div>
+      
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/02/OPENGL-函数/" rel="next" title="OPENGL-函数">
+                <i class="fa fa-chevron-left"></i> OPENGL-函数
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/09/HTTP-协议详解-应用/" rel="prev" title="HTTP-协议详解-应用">
+                HTTP-协议详解-应用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="http://i5.tietuku.com/0d972d2b106fc7ea.jpg"
+                alt="zhanggeng" />
+            
+              <p class="site-author-name" itemprop="name">zhanggeng</p>
+              <p class="site-description motion-element" itemprop="description">张庚个人博客</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#socket"><span class="nav-number">1.</span> <span class="nav-text">socket</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#socket-1"><span class="nav-number">1.1.</span> <span class="nav-text">socket</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#socketpair"><span class="nav-number">1.2.</span> <span class="nav-text">socketpair</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#fcntl"><span class="nav-number">1.2.1.</span> <span class="nav-text">fcntl</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <!--<div class="copyright">&copy; 
+   <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhanggeng</span> 
+
+  
+
+</div>-->
+
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+-->
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-balance-scale"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhanggeng</span>
+</div>
+
+<div class="busuanzi-count">
+    <script async="" src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      访问用户： <span class="busuanzi-value" id="busuanzi_value_site_uv"></span> 人
+    </span>
+    <div class="powered-by"></div>
+    <span class="site-uv">
+      <i class="fa fa-eye"></i>
+      访问次数： <span class="busuanzi-value" id="busuanzi_value_site_pv"></span> 次
+    </span>
+    <!-- 博客字数统计 -->
+    <span class="site-pv">
+      <i class="fa fa-pencil"></i>
+      博客全站共： <span class="post-count">54.0k</span> 字
+    </span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<!-- <script type="text/javascript" src="/js/src/love.js"></script> -->
